@@ -1,0 +1,10 @@
+<h1>Snowboards</h1>
+
+<% @items.each do |item| %>
+  <ul>
+    <h3><%= item.name %></h3>
+    <li><%= item.description %></li>
+    <li>$<%= item.price %></li>
+    <li><%= item.image %></li>
+  </ul>
+<% end %>
