@@ -13,8 +13,8 @@ class VisitorCanViewProductsTest < ActionDispatch::IntegrationTest
     visit items_path
 
     assert page.has_content?("Snowboards")
-    assert page.has_content?("gnar possum")
-    assert page.has_content?("gwar possum")
+    assert page.has_content?("GNAR POSSUM")
+    assert page.has_content?("GWAR POSSUM")
   end
 
 end
