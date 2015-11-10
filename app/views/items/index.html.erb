@@ -2,8 +2,8 @@
 
 <% @items.each do |item| %>
   <ul>
-    <h3><%= item.name %></h3>
-    <li><%= item.description %></li>
-    <li>$<%= item.price %></li>
+    <h3>Name: <%= item.name %></h3>
+    <li> Description: <%= item.description %></li>
+    <li>Price: $<%= item.price %></li>
   </ul>
 <% end %>

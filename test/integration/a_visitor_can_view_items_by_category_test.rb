@@ -23,9 +23,19 @@ class AVisitorCanViewItemsByCategoryTest < ActionDispatch::IntegrationTest
                        price: 80,
                        category_id: category_two.id)
 
-    visit category_path(category.id)
-    save_and_open_page
+    visit category_path(category)
 
     assert page.has_content?("Snowboards")
+    assert page.has_content?("Name: gnar possum")
+    assert page.has_content?("Description: a snowboard for shredding gnar pow")
+    assert page.has_content?("Price: $1000")
+
+    visit category_path(category_two)
+
+    assert page.has_content?("Apparel")
+    assert page.has_content?("Name: Sweet Jacket")
+    assert page.has_content?("Keeps you warm")
+    assert page.has_content?("Price: $80")
+
   end
 end

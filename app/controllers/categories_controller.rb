@@ -1,7 +1,9 @@
 class CategoriesController < ApplicationController
 
   def show
-    @category = Category.find_by(title: params[:title])
+    #need to remember to downcase the title's somewhere - not sure if
+    #they should be stored in db downcased?
+    @category = Category.find_by_title(params[:id])
   end
 
 end

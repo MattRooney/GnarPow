@@ -1,1 +1,9 @@
 <h1><%= @category.title %></h1>
+
+<% @category.items.each do |item| %>
+  <ul>
+    <h3>Name: <%= item.name %></h3>
+    <li> Description: <%= item.description %></li>
+    <li>Price: $<%= item.price %></li>
+  </ul>
+<% end %>
