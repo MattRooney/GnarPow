@@ -5,3 +5,24 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+categories = Category.create([{title: "Apparel"},{title: "Snowboards"}])
+
+apparel = Category.first.items.create([{name: "Hoody",
+                      description: "Keeps you slightly warm",
+                      price: 80},
+
+                     {name: "Sweet Jacket",
+                      description: "Keeps you warm",
+                      price: 240}])
+
+
+snowboards = Category.last.items.create([
+                    {name: "gwar possum",
+                     description: "a snowboard for gwar concerts",
+                     price: 15},
+
+
+                     {name: "gnar possum",
+                      description: "a snowboard for shredding gnar pow",
+                      price: 1000}])

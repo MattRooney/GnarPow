@@ -23,7 +23,7 @@ class AVisitorCanViewItemsByCategoryTest < ActionDispatch::IntegrationTest
                        price: 80,
                        category_id: category_two.id)
 
-    visit category_path(category)
+    visit category_path(category.slug)
 
     assert page.has_content?("Snowboards")
     assert page.has_content?("Name: GNAR POSSUM")
@@ -34,7 +34,7 @@ class AVisitorCanViewItemsByCategoryTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Price: $15")
 
 
-    visit category_path(category_two)
+    visit category_path(category_two.slug)
 
     assert page.has_content?("Apparel")
     assert page.has_content?("Name: SWEET JACKET")
