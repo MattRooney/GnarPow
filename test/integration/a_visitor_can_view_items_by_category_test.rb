@@ -31,7 +31,7 @@ class AVisitorCanViewItemsByCategoryTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Price: $1000")
 
     visit category_path(category_two)
-
+    save_and_open_page
     assert page.has_content?("Apparel")
     assert page.has_content?("Name: Sweet Jacket")
     assert page.has_content?("Keeps you warm")

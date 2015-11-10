@@ -1,9 +1,9 @@
-<h1><%= @category.title %></h1>
+<h1><%= @category.title.capitalize %></h1>
 
 <% @category.items.each do |item| %>
   <ul>
-    <h3>Name: <%= item.name %></h3>
-    <li> Description: <%= item.description %></li>
+    <h3>Name: <%= item.name.upcase %></h3>
+    <li> Description: <%= item.description.capitalize %></li>
     <li>Price: $<%= item.price %></li>
   </ul>
 <% end %>

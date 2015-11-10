@@ -1,9 +1,20 @@
-<h1>Snowboards</h1>
+<h1>All Items</h1>
 
 <% @items.each do |item| %>
-  <ul>
-    <h3>Name: <%= item.name %></h3>
-    <li> Description: <%= item.description %></li>
-    <li>Price: $<%= item.price %></li>
-  </ul>
+<div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/office.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Name: <%= item.name.upcase %><i class="material-icons right">more_vert</i></span>
+      <p>Price: $<%= item.price %></p>
+      <p><a class="btn" href="#">View Item</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Description: <i class="material-icons right">close</i></span>
+      <p><%= item.description.capitalize %></p>
+      <p>Price: $<%= item.price %></p>
+    </div>
+  </div>
+
 <% end %>
