@@ -1,6 +1,6 @@
-<h1>Snowboards</h1>
+<h1><%= @category.title %></h1>
 
-<% @items.each do |item| %>
+<% @category.items.each do |item| %>
   <ul>
     <h3>Name: <%= item.name %></h3>
     <li> Description: <%= item.description %></li>

@@ -32,7 +32,7 @@ class ItemTest < ActiveSupport::TestCase
                        price: "hey",
                        image_file_name: 'hi.png')
 
-    refute item.save
+    refute item.save 
   end
 
 
