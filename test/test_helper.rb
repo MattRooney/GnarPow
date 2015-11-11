@@ -42,11 +42,11 @@ module CategoryItemsSetup
   end
 
   def create_items
-    item = Item.create(name: "gnar possum",
-                       description: "a snowboard for shredding gnar pow",
-                       price: 1000)
-    item = Item.create(name: "gwar possum",
-                       description: "a snowboard for gwar concerts",
-                       price: 15)
+    Item.create(name: "gnar possum",
+                description: "a snowboard for shredding gnar pow",
+                price: 1000)
+    Item.create(name: "gwar possum",
+                description: "a snowboard for gwar concerts",
+                price: 15)
   end
 end

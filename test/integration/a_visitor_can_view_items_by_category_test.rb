@@ -1,6 +1,5 @@
 require 'test_helper'
 
-
 class AVisitorCanViewItemsByCategoryTest < ActionDispatch::IntegrationTest
   include CategoryItemsSetup
 
@@ -11,9 +10,10 @@ class AVisitorCanViewItemsByCategoryTest < ActionDispatch::IntegrationTest
 
     assert page.has_content?("Snowboards")
 
-    within('.items') do
+    within(".items") do
       assert page.has_content?("Name: GNAR POSSUM")
-      assert page.has_content?("Description: A snowboard for shredding gnar pow")
+      assert page.has_content?("Description: A snowboard for shredding gnar
+                               pow")
       assert page.has_content?("Price: $1000")
       assert page.has_content?("Name: GWAR POSSUM")
       assert page.has_content?("Description: A snowboard for gwar concerts")
@@ -31,7 +31,7 @@ class AVisitorCanViewItemsByCategoryTest < ActionDispatch::IntegrationTest
 
     assert page.has_content?("Apparel")
 
-    within('.items') do
+    within(".items") do
       assert page.has_content?("Name: SWEET JACKET")
       assert page.has_content?("Keeps you warm")
       assert page.has_content?("Price: $240")
@@ -40,7 +40,8 @@ class AVisitorCanViewItemsByCategoryTest < ActionDispatch::IntegrationTest
       assert page.has_content?("Price: $80")
       refute page.has_content?("Snowboards")
       refute page.has_content?("Name: GNAR POSSUM")
-      refute page.has_content?("Description: A snowboard for shredding gnar pow")
+      refute page.has_content?("Description: A snowboard for shredding gnar
+                               pow")
       refute page.has_content?("Price: $1000")
       refute page.has_content?("Name: GWAR POSSUM")
       refute page.has_content?("Description: A snowboard for gwar concerts")

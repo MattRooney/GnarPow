@@ -15,7 +15,7 @@ class CategoryTest < ActiveSupport::TestCase
     refute category.valid?
   end
 
-  test 'a category has items' do
+  test "a category has items" do
     create_categories_and_items
 
     assert_equal 2, @category.items.count
