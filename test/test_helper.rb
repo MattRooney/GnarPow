@@ -26,30 +26,30 @@ module CategoryItemsSetup
     @category_two = Category.create(title: "Apparel")
 
     Item.create(name: "gnar possum",
-                       description: "a snowboard for shredding gnar pow",
-                       price: 1000,
-                       category_id: @category.id)
+                description: "a snowboard for shredding gnar pow",
+                price: 1000,
+                category_id: @category.id)
     Item.create(name: "gwar possum",
-                       description: "a snowboard for gwar concerts",
-                       price: 15,
-                       category_id: @category.id)
+                description: "a snowboard for gwar concerts",
+                price: 15,
+                category_id: @category.id)
     Item.create(name: "Sweet Jacket",
-                       description: "Keeps you warm",
-                       price: 240,
-                       category_id: @category_two.id)
+                description: "Keeps you warm",
+                price: 240,
+                category_id: @category_two.id)
     Item.create(name: "Hoody",
-                       description: "Keeps you slightly warm",
-                       price: 80,
-                       category_id: @category_two.id)
-    end
+                description: "Keeps you slightly warm",
+                price: 80,
+                category_id: @category_two.id)
+  end
 
-    def create_items
-      item = Item.create(name: "gnar possum",
-                         description: "a snowboard for shredding gnar pow",
-                         price: 1000)
-      item = Item.create(name: "gwar possum",
-                         description: "a snowboard for gwar concerts",
-                         price: 15)
-    end
+  def create_items
+    item = Item.create(name: "gnar possum",
+                       description: "a snowboard for shredding gnar pow",
+                       price: 1000)
+    item = Item.create(name: "gwar possum",
+                       description: "a snowboard for gwar concerts",
+                       price: 15)
+  end
 
 end
