@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity</th>
+    </tr>
+  </thead>
+<% @items.each do |item| %>
+       <tbody>
+         <tr>
+           <td><%= item.name.capitalize %></td>
+           <td><%= item.description %></td>
+           <td><%= item.price %></td>
+           <td><%= @cart.count_of(item.id) %></td>
+         </tr>
+       </tbody>
+<% end %>
+</table>

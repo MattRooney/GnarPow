@@ -18,4 +18,25 @@ class Cart
     contents[item_id.to_s]
   end
 
+
+
+  # def items
+  #   contents.map do |item_id, count|
+  #     item = Item.find(item_id)
+  #     CartItem.new(item, count)
+  #   end
+  # end
+
 end
+
+# class CartItem < SimpleDelegator
+#   attr_accessor :count
+#
+#   def initialize(item, count)
+#     super(item)
+#
+#
+#     @count = count
+#   end
+#
+# end

@@ -33,16 +33,15 @@ class VisitorCanAddItemToCartAndViewCartTest < ActionDispatch::IntegrationTest
     end
   end
   test 'visitor can view cart with selected items' do
-    skip
     Item.create(name: "gnar possum",
                 description: "a snowboard for shredding gnar pow",
                 price: 1000)
     visit items_path
 
-    click_button "Add To Cart"
-    click_button "Cart"
+    click_link "Add To Cart"
+    click_link "Cart"
     assert_equal current_path, cart_path
-    assert page.has_content?("Gnar Possum")
+    assert page.has_content?("Gnar possum")
     assert page.has_content?("1000")
   end
 end
