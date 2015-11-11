@@ -17,9 +17,7 @@ class ActionDispatch::IntegrationTest
   def teardown
     reset_session!
   end
-
 end
-
 module CategoryItemsSetup
   def create_categories_and_items
     @category     = Category.create(title: "Snowboards")
@@ -51,5 +49,4 @@ module CategoryItemsSetup
                        description: "a snowboard for gwar concerts",
                        price: 15)
   end
-
 end
