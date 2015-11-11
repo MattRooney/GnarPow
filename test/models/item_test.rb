@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class ItemTest < ActiveSupport::TestCase
-  test "we can create a new item with valid attributes" do
+  test "a new item with all attributes is valid" do
     item = Item.create(name: "gnar possum",
                        description: "a snowboard for shredding gnar pow",
                        price: 1000,
@@ -10,7 +10,7 @@ class ItemTest < ActiveSupport::TestCase
     assert item.save
   end
 
-  test "we cannot create a new item without a name" do
+  test "it cannot create a new item without a name" do
     item = Item.create(description: "a snowboard for shredding gnar pow",
                        price: 1000,
                        image_file_name: 'hi.png')
@@ -18,7 +18,7 @@ class ItemTest < ActiveSupport::TestCase
     refute item.save
   end
 
-  test "we cannot create a new item without a price" do
+  test "it cannot create a new item without a price" do
     item = Item.create(name: "gnar possum",
                        description: "a snowboard for shredding gnar pow",
                        image_file_name: 'hi.png')
@@ -26,15 +26,13 @@ class ItemTest < ActiveSupport::TestCase
     refute item.save
   end
 
-  test "we cannot create a new item with invalid attributes" do
+  test "it cannot create a new item with a price that is not an integer" do
     item = Item.create(name: "gnar possum",
                        description: "a snowboard for shredding gnar pow",
                        price: "hey",
                        image_file_name: 'hi.png')
 
-    refute item.save 
+    refute item.save
   end
-
-
 
 end
