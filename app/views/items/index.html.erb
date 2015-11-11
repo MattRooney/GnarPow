@@ -1,27 +1,5 @@
 <h1>All Items</h1>
 
-<% @items.each do |item| %>
 <div class="row">
-  <div class="s10 offset-s1 col">
-    <div class="row">
-      <div class="col m4">
-        <div class="card">
-          <div class="card-image waves-effect waves-block waves-light">
-            <%= image_tag item.image.url, class: "activator" %>
-          </div>
-          <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Name: <%= item.name.upcase %><i class="material-icons right">more_vert</i></span>
-            <p>Price: $<%= item.price %></p>
-            <p><a class="btn" href="#">View Item</a></p>
-          </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Description: <i class="material-icons right">close</i></span>
-            <p><%= item.description.capitalize %></p>
-            <p>Price: $<%= item.price %></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <%= render @items %>
 </div>
-<% end %>
