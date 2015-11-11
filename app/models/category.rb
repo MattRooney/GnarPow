@@ -1,4 +1,5 @@
 class Category < ActiveRecord::Base
+  validates :title, presence: true
   before_save :set_slug
   has_many :items
 
