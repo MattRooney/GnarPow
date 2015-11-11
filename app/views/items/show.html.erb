@@ -1,0 +1,19 @@
+<h1><%= @item.name %></h1>
+
+<div class="row">
+   <div class="col s12 m7">
+     <div class="card">
+       <div class="card-image">
+         <%= image_tag @item.image.url %>
+         <span class="card-title black"><%= @item.name.upcase %></span>
+       </div>
+       <div class="card-content">
+         <p><%= @item.description.capitalize %></p>
+         <p>Price: $<%= @item.price %></p>
+       </div>
+       <div class="card-action">
+         <%= link_to "Add To Cart", cart_items_path(item_id: @item.id), method: :post %>
+       </div>
+     </div>
+   </div>
+ </div>

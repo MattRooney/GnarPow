@@ -25,3 +25,13 @@
 .push-logo-right {
   margin-left: 10px;
 }
+
+.card-title {
+    width: 100%;
+    text-align: center;
+    opacity: 0.7;
+}
+
+.add-to-cart {
+  margin-left: 10px;
+}

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :items, only: [:index]
+  resources :items, only: [:index, :show]
   resources :cart_items, only: [:create, :destroy]
   resources :categories, only: [:show, :index], param: :slug
 
