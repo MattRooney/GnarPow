@@ -10,4 +10,10 @@ class CartItemsController < ApplicationController
     redirect_to items_path
   end
 
+  def destroy
+    @cart.contents.delete_if { |key, value| key == params[:id] }
+
+    redirect_to cart_path
+  end
+
 end
