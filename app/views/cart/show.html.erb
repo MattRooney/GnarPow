@@ -11,7 +11,7 @@
   <% @items.each do |item| %>
   <tbody>
     <tr>
-      <td><%= image_tag item.image.url %></td>
+      <td><%= image_tag item.image.url(:thumb) %></td>
       <td><%= item.name.capitalize %></td>
       <td><%= item.description %></td>
       <td>$<%= item.price %></td>
@@ -19,7 +19,11 @@
     </tr>
     <% end %>
     <tr>
-      <td><strong>Total:</strong></td>
+      <td class="center"><strong>Total:</strong></td>
+      <td></td>
+      <td></td>
+      <td class="left"> $<%= @total %> </td>
+
     </tr>
   </tbody>
 </table>

@@ -19,7 +19,6 @@ class Cart
   end
 
 
-
   # def items
   #   contents.map do |item_id, count|
   #     item = Item.find(item_id)
