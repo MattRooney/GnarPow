@@ -10,7 +10,7 @@ class GuestCreatesAccountTest < ActionDispatch::IntegrationTest
   fill_in "Username", with: "Matt"
   fill_in "Password", with: "gnargnar"
   click_button "Create Account"
-  save_and_open_page
+
   assert page.has_content?("Logged in as Matt")
   end
 end
