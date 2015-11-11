@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+.item-title {
+  font-size: 18px !important;
+}
+
+.card-image img {
+  padding: 5px;
+}
+
+.push-logo-right {
+  margin-left: 10px;
+}
