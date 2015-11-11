@@ -6,6 +6,8 @@
       <th>Description</th>
       <th>Price</th>
       <th>Quantity</th>
+      <th>Update Quantity</th>
+      <th>Remove Item</th>
     </tr>
   </thead>
   <% @items.each do |item| %>
@@ -16,6 +18,8 @@
       <td><%= item.description %></td>
       <td>$<%= item.price %></td>
       <td><%= @cart.count_of(item.id) %></td>
+      <td> + - </td>
+      <td><%= link_to "X", cart_item_path(item.id), method: :delete, id:"Remove Item" %></td>
     </tr>
     <% end %>
     <tr>
