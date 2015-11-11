@@ -7,7 +7,7 @@
       <span class="card-title item-title activator grey-text text-darken-4"><%= item.name.upcase %><i class="material-icons right">more_vert</i></span>
       <p>Price: $<%= item.price %></p>
       <a class="btn small" href="#">View Item</a>
-      <a href="#">Add To Cart</a>
+      <%= link_to "Add To Cart", cart_items_path(item_id: item.id), method: :post %>
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">Description: <i class="material-icons right">close</i></span>
