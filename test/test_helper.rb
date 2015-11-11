@@ -51,4 +51,5 @@ module CategoryItemsSetup
                          description: "a snowboard for gwar concerts",
                          price: 15)
     end
+
 end
