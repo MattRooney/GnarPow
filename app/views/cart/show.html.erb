@@ -1,0 +1,29 @@
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+  <% @items.each do |item| %>
+  <tbody>
+    <tr>
+      <td><%= image_tag item.image.url(:thumb) %></td>
+      <td><%= item.name.capitalize %></td>
+      <td><%= item.description %></td>
+      <td>$<%= item.price %></td>
+      <td><%= @cart.count_of(item.id) %></td>
+    </tr>
+    <% end %>
+    <tr>
+      <td class="center"><strong>Total:</strong></td>
+      <td></td>
+      <td></td>
+      <td class="left"> $<%= @total %> </td>
+
+    </tr>
+  </tbody>
+</table>
