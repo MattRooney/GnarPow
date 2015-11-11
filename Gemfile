@@ -37,6 +37,7 @@ group :development, :test do
   gem 'byebug'
   gem 'capybara'
   gem 'launchy'
+  gem 'pry'
 end
 
 group :development do

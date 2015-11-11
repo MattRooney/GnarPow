@@ -12,6 +12,9 @@
 <body>
   <%= render "partials/nav" %>
 <div class="container">
+  <% flash.each do |type, msg| %>
+    <%= content_tag :div, msg %>
+  <% end %>
   <%= yield %>
 </div>
 <!-- Compiled and minified JavaScript -->
