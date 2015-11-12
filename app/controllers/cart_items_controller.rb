@@ -10,10 +10,19 @@ class CartItemsController < ApplicationController
     redirect_to items_path
   end
 
+  def update
+    if params[:quantity] == "0"
+      destroy
+    else
+      @cart.contents.select { |item, quantity| item == params[:id] }.map { |item, quantity| @cart.contents[item] = params[:quantity].to_i }
+      redirect_to cart_path
+    end
+  end
+
   def destroy
     @cart.contents.delete_if { |key, value| key == params[:id] }
-
     redirect_to cart_path
   end
+
 
 end
