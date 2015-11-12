@@ -1,5 +1,4 @@
 class RegisteredUserLoginTest < ActionDispatch::IntegrationTest
-
   test "a registered user can login" do
     login_a_user
 
@@ -64,7 +63,6 @@ class RegisteredUserLoginTest < ActionDispatch::IntegrationTest
   end
 
   def create_user
-    user = User.create(username: "Matt",
-                       password: "gnargnar")
+    User.create(username: "Matt", password: "gnargnar")
   end
 end

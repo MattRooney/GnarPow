@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
   test "guest with valid attributes can create user" do
@@ -18,5 +18,4 @@ class UserTest < ActiveSupport::TestCase
 
     refute user.valid?
   end
-
 end

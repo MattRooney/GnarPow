@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def new
   end
 
@@ -24,5 +23,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :password)
   end
-
 end
