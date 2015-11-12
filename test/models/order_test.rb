@@ -37,6 +37,13 @@ class OrderTest < ActiveSupport::TestCase
     assert_equal "ordered", user.orders.last.current_status
   end
 
+  # test "a cart can be saved as an order" do
+  #   cart = Cart.new( { "1" => 3, "2" => 1, "3" => 3 })
+  #   order = Order.create(cart)
+  #
+  #   assert_equal 1,
+  end
+
   # test "a new order with all attributes is valid" do
   #   order = Order.new(current_status: "completed")
   #
@@ -91,5 +98,3 @@ class OrderTest < ActiveSupport::TestCase
   # test "a user can have many orders" do
   #   skip
   # end
-
-end

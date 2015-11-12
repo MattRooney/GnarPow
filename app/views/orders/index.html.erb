@@ -2,6 +2,6 @@
 
 <% @orders.each do |order| %>
   <ul>
-    <li><%= order.current_status %></li>
+    <li><%= order.current_status %> <%= link_to "View Order", order_path(order) %></li>
   </ul>
 <% end %>

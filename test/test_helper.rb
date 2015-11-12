@@ -67,4 +67,19 @@ module CategoryItemsSetup
                 category_id: @category_two.id)
     Order.create(current_status: "completed")
   end
+
+  def create_user
+    User.create(username: "Matt", password: "gnargnar")
+  end
+
+  def login_a_user
+    create_user
+    visit login_path
+
+    within(".login_form") do
+      fill_in "Username", with: "Matt"
+      fill_in "Password", with: "gnargnar"
+      click_button "Login"
+    end
+  end
 end

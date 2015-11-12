@@ -1,32 +1,26 @@
+<h5>Order Number: <%= @order.id %></h5>
+<h6>Order Status: <%= @order.current_status %></h6>
+<h6>Submitted on: <%= @order.created_at.time.strftime("%b %-d, %Y %-l:%M %p") %></h6>
+
+
 <table>
   <thead>
     <tr>
       <th></th>
       <th>Name</th>
-      <th>Description</th>
       <th>Price</th>
       <th>Quantity</th>
       <th>Subtotal</th>
-      <th>Update Quantity</th>
-      <th>Remove Item</th>
     </tr>
   </thead>
-  <% @items.each do |item| %>
+  <% @order.items.each do |item| %>
   <tbody>
     <tr>
       <td><%= image_tag item.image.url(:thumb) %></td>
-      <td><%= item.name.capitalize %></td>
-      <td><%= item.description %></td>
+      <td><%= link_to item.name.capitalize, item_path(item) %></td>
       <td>$<%= item.price %></td>
       <td><%= @cart.count_of(item.id) %></td>
       <td>$<%= item.price * @cart.count_of(item.id) %></td>
-      <td><%= form_tag(cart_item_path(item), method: "patch") do %>
-       <%= label_tag :quantity %>
-       <%= number_field_tag :quantity %>
-       <%= submit_tag "Update Quantity" %>
-      <% end %>
-      </td>
-      <td><%= link_to "X", cart_item_path(item.id), method: :delete, id:"Remove Item" %></td>
     </tr>
     <% end %>
     <tr>

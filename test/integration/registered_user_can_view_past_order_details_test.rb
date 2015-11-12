@@ -1,25 +1,32 @@
 require 'test_helper'
 
 class RegisteredUserCanViewPastOrderDetailsTest < ActionDispatch::IntegrationTest
+  include CategoryItemsSetup
   test 'user can view past order details' do
-    skip
-    user = User.create(username: "Matt", password: "password")
-    Item.create(name: "gnar possum",
-                description: "a snowboard for shredding gnar pow",
-                price: 1000)
-    Item.create(name: "gwar possum",
-                description: "a snowboard for shredding gnar pow",
-                price: 15)
-    Item.create(name: "hoody",
-                description: "a snowboard for shredding gnar pow",
-                price: 80)
-    user.orders.create(current_status: "completed")
+    create_categories_and_items
+    current_user = User.create(username: "Matt", password: "gnargnar")
+    visit login_path
 
-    visit user_orders_path(user)
+    within(".login_form") do
+      fill_in "Username", with: "Matt"
+      fill_in "Password", with: "gnargnar"
+      click_button "Login"
+    end
+
+
+    order = current_user.orders.create(current_status: "ordered",
+                                       total_price: 1335)
+
+    visit orders_path(current_user)
     click_link "View Order"
 
-    asserst_equal current_path, user_order_path(order_id)
+
+    assert_equal order_path(order), current_path
+    save_and_open_page
+    
     assert page.has_content?("Order Number")
-    assert page.has_content?("completed")
+    assert page.has_content?("Order Status")
+    assert page.has_content?("Total")
+    assert page.has_content?("Submitted on")
   end
 end

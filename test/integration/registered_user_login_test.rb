@@ -1,4 +1,5 @@
 class RegisteredUserLoginTest < ActionDispatch::IntegrationTest
+  include CategoryItemsSetup
   test "a registered user can login" do
     login_a_user
 
@@ -51,18 +52,5 @@ class RegisteredUserLoginTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Thanks for visiting. Keep shreddin'")
   end
 
-  def login_a_user
-    create_user
-    visit login_path
-
-    within(".login_form") do
-      fill_in "Username", with: "Matt"
-      fill_in "Password", with: "gnargnar"
-      click_button "Login"
-    end
-  end
-
-  def create_user
-    User.create(username: "Matt", password: "gnargnar")
-  end
+  
 end
