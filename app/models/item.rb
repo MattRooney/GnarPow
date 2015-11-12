@@ -6,4 +6,5 @@ class Item < ActiveRecord::Base
   validates :price, numericality: true
 
   belongs_to :category
+  belongs_to :order
 end
