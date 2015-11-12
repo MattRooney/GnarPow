@@ -35,3 +35,7 @@
 .add-to-cart {
   margin-left: 10px;
 }
+
+.flash_remove {
+  color: green;
+}
