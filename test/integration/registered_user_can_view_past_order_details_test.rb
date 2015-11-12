@@ -13,20 +13,28 @@ class RegisteredUserCanViewPastOrderDetailsTest < ActionDispatch::IntegrationTes
       click_button "Login"
     end
 
-
     order = current_user.orders.create(current_status: "ordered",
                                        total_price: 1335)
 
-    visit orders_path(current_user)
+    order.order_items.create(item_id: Item.first.id, order_id: order.id, quantity: 2)
+
+    visit "/orders"
+
     click_link "View Order"
 
-
     assert_equal order_path(order), current_path
-    save_and_open_page
-    
+
     assert page.has_content?("Order Number")
     assert page.has_content?("Order Status")
     assert page.has_content?("Total")
     assert page.has_content?("Submitted on")
+
+    within(".orders-table") do
+      assert page.has_content?("Hoody")
+      assert page.has_content?("Sweet Jacket")
+      assert page.has_content?("Gwar possum")
+      assert page.has_content?("Gnar possum")
+    end
+
   end
 end
