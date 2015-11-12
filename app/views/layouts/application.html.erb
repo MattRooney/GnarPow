@@ -12,6 +12,7 @@
 <body>
   <%= render "partials/nav" %>
 <div class="container">
+  <p>Cart: <%= @cart.total %></p>
   <% flash.each do |type, msg| %>
     <%= content_tag :div, msg %>
   <% end %>
