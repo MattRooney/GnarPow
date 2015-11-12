@@ -1,6 +1,20 @@
 require 'test_helper'
 
 class OrderTest < ActiveSupport::TestCase
+
+  test "an order can have one item" do
+    user = User.create(username: "Matt", password: "password")
+    item = Item.create(name: "gnar possum",
+                description: "a snowboard for shredding gnar pow",
+                price: 1000)
+
+    item.orders.create(current_status: "completed",
+                         total_price: 1000,
+                         user_id: user.id)
+
+    assert_equal 1, item.orders.count
+  end
+
   test "an order belongs to a user" do
     user = User.create(username: "Matt", password: "password")
 

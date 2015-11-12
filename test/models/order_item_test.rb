@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ItemOrderTest < ActiveSupport::TestCase
+class OrderItemTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

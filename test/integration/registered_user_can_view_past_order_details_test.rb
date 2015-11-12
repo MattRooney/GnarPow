@@ -2,20 +2,17 @@ require 'test_helper'
 
 class RegisteredUserCanViewPastOrderDetailsTest < ActionDispatch::IntegrationTest
   test 'user can view past order details' do
-    skip 
+    skip
     user = User.create(username: "Matt", password: "password")
     Item.create(name: "gnar possum",
                 description: "a snowboard for shredding gnar pow",
-                price: 1000,
-                order_id: order.id)
+                price: 1000)
     Item.create(name: "gwar possum",
                 description: "a snowboard for shredding gnar pow",
-                price: 15,
-                order_id: order.id)
+                price: 15)
     Item.create(name: "hoody",
                 description: "a snowboard for shredding gnar pow",
-                price: 80,
-                order_id: order.id)
+                price: 80)
     user.orders.create(current_status: "completed")
 
     visit user_orders_path(user)
