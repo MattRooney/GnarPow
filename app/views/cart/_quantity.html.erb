@@ -1,0 +1,5 @@
+<%= form_tag(cart_item_path(item), method: "patch") do %>
+ <%= label_tag :quantity %>
+ <%= text_field_tag :quantity %>
+ <%= submit_tag "Update Quantity" %>
+<% end %>
