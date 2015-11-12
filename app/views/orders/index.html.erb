@@ -1,0 +1,7 @@
+<h3>Your Orders</h3>
+
+<% @orders.each do |order| %>
+  <ul>
+    <li><%= order.current_status %></li>
+  </ul>
+<% end %>
