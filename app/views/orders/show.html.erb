@@ -1,0 +1,32 @@
+<h5>Order Number: <%= @order.id %></h5>
+<h6>Order Status: <%= @order.current_status %></h6>
+<h6>Submitted on: <%= @order.created_at.time.strftime("%b %-d, %Y %-l:%M %p") %></h6>
+
+
+<table class="orders-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+    </tr>
+  </thead>
+  <% @order.order_items.each do |order_item| %>
+  <tbody>
+    <tr>
+      <td><%= link_to Item.find(order_item.item_id).name.capitalize, item_path(Item.find(order_item.item_id).id) %></td>
+      <td>$<%= Item.find(order_item.item_id).price %></td>
+      <td><%= order_item.quantity %></td>
+      <td>$<%= Item.find(order_item.item_id).price * order_item.quantity %></td>
+    </tr>
+    <% end %>
+    <tr>
+      <td class="left"><strong>Total:</strong></td>
+      <td></td>
+      <td></td>
+      <td class="left"> $<strong><%= @total %></strong></td>
+
+    </tr>
+  </tbody>
+</table>

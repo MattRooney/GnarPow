@@ -1,6 +1,20 @@
 require 'test_helper'
 
 class OrderTest < ActiveSupport::TestCase
+
+  test "an order can have one item" do
+    user = User.create(username: "Matt", password: "password")
+    item = Item.create(name: "gnar possum",
+                description: "a snowboard for shredding gnar pow",
+                price: 1000)
+
+    item.orders.create(current_status: "completed",
+                         total_price: 1000,
+                         user_id: user.id)
+
+    assert_equal 1, item.orders.count
+  end
+
   test "an order belongs to a user" do
     user = User.create(username: "Matt", password: "password")
 
@@ -21,6 +35,13 @@ class OrderTest < ActiveSupport::TestCase
     assert_equal 3, user.orders.count
     assert_equal "completed", user.orders.first.current_status
     assert_equal "ordered", user.orders.last.current_status
+  end
+
+  # test "a cart can be saved as an order" do
+  #   cart = Cart.new( { "1" => 3, "2" => 1, "3" => 3 })
+  #   order = Order.create(cart)
+  #
+  #   assert_equal 1,
   end
 
   # test "a new order with all attributes is valid" do
@@ -77,5 +98,3 @@ class OrderTest < ActiveSupport::TestCase
   # test "a user can have many orders" do
   #   skip
   # end
-
-end

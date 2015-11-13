@@ -3,10 +3,8 @@ Rails.application.routes.draw do
   resources :cart_items, only: [:create, :destroy, :update]
   resources :items, only: [:index, :show]
   resources :categories, only: [:show, :index], param: :slug
-
-  resources :users, only: [:new, :create, :show] do
-    resources :orders, only: [:index]
-  end
+  resources :users, only: [:new, :create, :show]
+  resources :orders, only: [:index, :show]
 
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"

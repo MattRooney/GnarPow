@@ -49,4 +49,37 @@ module CategoryItemsSetup
                 description: "a snowboard for gwar concerts",
                 price: 15)
   end
+
+  def create_items_and_order
+    @category     = Category.create(title: "Snowboards")
+    @category_two = Category.create(title: "Apparel")
+    item_1 = Item.create(name: "gnar possum",
+                description: "a snowboard for shredding gnar pow",
+                price: 1000,
+                category_id: @category.id)
+    item_2 = Item.create(name: "gwar possum",
+                description: "a snowboard for gwar concerts",
+                price: 15,
+                category_id: @category.id)
+    item_3 = Item.create(name: "Hoody",
+                description: "Keeps you slightly warm",
+                price: 80,
+                category_id: @category_two.id)
+    Order.create(current_status: "completed")
+  end
+
+  def create_user
+    User.create(username: "Matt", password: "gnargnar")
+  end
+
+  def login_a_user
+    create_user
+    visit login_path
+
+    within(".login_form") do
+      fill_in "Username", with: "Matt"
+      fill_in "Password", with: "gnargnar"
+      click_button "Login"
+    end
+  end
 end
