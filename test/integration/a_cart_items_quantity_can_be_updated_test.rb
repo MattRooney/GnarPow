@@ -8,8 +8,8 @@ class ACartItemsQuantityCanBeUpdatedTest < ActionDispatch::IntegrationTest
 
     visit items_path
     click_link "Add To Cart"
-    click_link "Cart"
-    assert_equal current_path, cart_path
+    click_link "go-to-cart"
+      assert_equal current_path, cart_path
 
     fill_in "Quantity", with: 3
     click_button "Update Quantity"

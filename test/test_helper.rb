@@ -82,4 +82,27 @@ module CategoryItemsSetup
       click_button "Login"
     end
   end
+
+  def add_items_to_cart
+    item_1 = Item.create(name: "gnar possum",
+                description: "a snowboard for shredding gnar pow",
+                price: 1000)
+    item_2 = Item.create(name: "gnar possum",
+                description: "a snowboard for shredding gnar pow",
+                price: 1000)
+    item_3 = Item.create(name: "Sweet Jacket",
+                description: "Keeps you warm",
+                price: 240)
+
+    visit items_path
+    within("#item_#{item_1.id}") do
+      click_link "Add To Cart"
+    end
+    within("#item_#{item_2.id}") do
+      click_link "Add To Cart"
+    end
+    within("#item_#{item_3.id}") do
+      click_link "Add To Cart"
+    end
+  end
 end
