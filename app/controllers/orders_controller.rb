@@ -5,8 +5,8 @@ class OrdersController < ApplicationController
   end
 
   def show
-    binding.pry
     @order = Order.find(params[:id])
+    @total = @order.order_items.map {|order_item| Item.find(order_item.item_id).price * order_item.quantity }.sum
   end
 
 
