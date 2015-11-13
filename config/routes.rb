@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :categories, only: [:show, :index], param: :slug
   resources :users, only: [:new, :create, :show]
   resources :orders, only: [:index, :show]
+  namespace :admin do
+    resources :dashboard, only: [:show]
+  end
+
 
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
