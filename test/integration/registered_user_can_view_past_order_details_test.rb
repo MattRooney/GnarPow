@@ -23,7 +23,6 @@ class RegisteredUserCanViewPastOrderDetailsTest < ActionDispatch::IntegrationTes
     click_link "View Order"
 
     assert_equal order_path(order), current_path
-    save_and_open_page
     assert page.has_content?("Order Number")
     assert page.has_content?("Order Status")
     assert page.has_content?("Total")
@@ -61,7 +60,6 @@ class RegisteredUserCanViewPastOrderDetailsTest < ActionDispatch::IntegrationTes
       click_link "View Order"
 
       assert_equal order_path(order), current_path
-      save_and_open_page
       assert page.has_content?("Order Number")
       assert page.has_content?("Order Status")
       assert page.has_content?("Total")

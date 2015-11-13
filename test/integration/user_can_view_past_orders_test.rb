@@ -1,9 +1,10 @@
 require 'test_helper'
 
 class UserCanViewPastOrdersTest < ActionDispatch::IntegrationTest
+  include CategoryItemsSetup
   test "user can view one past order" do
-    skip
-    user = User.create(username: "Matt", password: "password")
+    create_categories_and_items
+    current_user = User.create(username: "Matt", password: "gnargnar")
     visit login_path
 
     within(".login_form") do
@@ -12,17 +13,19 @@ class UserCanViewPastOrdersTest < ActionDispatch::IntegrationTest
       click_button "Login"
     end
 
-    user.orders.create(current_status: "completed")
+    order = current_user.orders.create(current_status: "ordered")
 
-    visit user_orders_path(user)
+    order.order_items.create(item_id: Item.first.id, order_id: order.id, quantity: 2)
+
+    visit "/orders"
 
     assert page.has_content?("Your Orders")
-    assert page.has_content?("completed")
+    assert page.has_content?("ordered")
   end
 
   test "user can view a list of all past orders" do
-    skip
-    user = User.create(username: "Matt", password: "password")
+    create_categories_and_items
+    current_user = User.create(username: "Matt", password: "gnargnar")
     visit login_path
 
     within(".login_form") do
@@ -31,10 +34,12 @@ class UserCanViewPastOrdersTest < ActionDispatch::IntegrationTest
       click_button "Login"
     end
 
-    user.orders.create(current_status: "completed")
-    user.orders.create(current_status: "paid")
+    order = current_user.orders.create(current_status: "completed")
+    order = current_user.orders.create(current_status: "paid")
 
-    visit user_orders_path(user)
+    order.order_items.create(item_id: Item.first.id, order_id: order.id, quantity: 2)
+
+    visit "/orders"
 
     assert page.has_content?("Your Orders")
     assert page.has_content?("completed")
