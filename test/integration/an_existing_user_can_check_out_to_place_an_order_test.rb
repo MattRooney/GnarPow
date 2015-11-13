@@ -13,7 +13,6 @@ class AnExistingUserCanCheckOutToPlaceAnOrderTest < ActionDispatch::IntegrationT
     assert page.has_content?("You must be logged in to check out")
   end
 
-
   test "an_existing_user_can_check_out_to_place_an_order and cart returns to zero" do
     create_user
     login_a_user
@@ -37,8 +36,6 @@ class AnExistingUserCanCheckOutToPlaceAnOrderTest < ActionDispatch::IntegrationT
     within(".cart-count") do
       assert page.has_content?("0")
     end
-
   end
-
 
 end
