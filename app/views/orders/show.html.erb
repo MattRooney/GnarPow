@@ -6,26 +6,29 @@
 <table class="orders-table">
   <thead>
     <tr>
+      <th></th>
       <th>Name</th>
       <th>Price</th>
       <th>Quantity</th>
       <th>Subtotal</th>
     </tr>
   </thead>
-  <% @order.order_items.each do |order_item| %>
+  <% @order.items.each do |item| %>
   <tbody>
     <tr>
-      <td><%= link_to Item.find(order_item.item_id).name.capitalize, item_path(Item.find(order_item.item_id).id) %></td>
-      <td>$<%= Item.find(order_item.item_id).price %></td>
-      <td><%= order_item.quantity %></td>
-      <td>$<%= Item.find(order_item.item_id).price * order_item.quantity %></td>
+      <td><%= image_tag item.image.url(:thumb) %></td>
+      <td><%= link_to item.name.capitalize, item_path(item) %></td>
+      <td>$<%= item.price %></td>
+      <td><%= @cart.count_of(item.id) %></td>
+      <td>$<%= item.price * @cart.count_of(item.id) %></td>
     </tr>
     <% end %>
     <tr>
-      <td class="left"><strong>Total:</strong></td>
+      <td class="center"><strong>Total:</strong></td>
       <td></td>
       <td></td>
-      <td class="left"> $<strong><%= @total %></strong></td>
+      <td></td>
+      <td class="left"> $<%= @total %> </td>
 
     </tr>
   </tbody>
