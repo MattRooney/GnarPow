@@ -24,10 +24,10 @@ class AnExistingUserCanCheckOutToPlaceAnOrderTest < ActionDispatch::IntegrationT
       assert page.has_content?("3")
     end
 
-    visit '/cart'
+    visit "/cart"
     click_link "Check Out"
 
-    assert_equal '/orders', current_path
+    assert_equal "/orders", current_path
 
     within("table") do
       assert page.has_content?("completed")
@@ -37,8 +37,5 @@ class AnExistingUserCanCheckOutToPlaceAnOrderTest < ActionDispatch::IntegrationT
     within(".cart-count") do
       assert page.has_content?("0")
     end
-
   end
-
-
 end

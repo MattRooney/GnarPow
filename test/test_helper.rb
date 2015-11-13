@@ -85,14 +85,14 @@ module CategoryItemsSetup
 
   def add_items_to_cart
     item_1 = Item.create(name: "gnar possum",
-                description: "a snowboard for shredding gnar pow",
-                price: 1000)
+                         description: "a snowboard for shredding gnar pow",
+                         price: 1000)
     item_2 = Item.create(name: "gnar possum",
-                description: "a snowboard for shredding gnar pow",
-                price: 1000)
+                         description: "a snowboard for shredding gnar pow",
+                         price: 1000)
     item_3 = Item.create(name: "Sweet Jacket",
-                description: "Keeps you warm",
-                price: 240)
+                         description: "Keeps you warm",
+                         price: 240)
 
     visit items_path
     within("#item_#{item_1.id}") do
