@@ -4,7 +4,7 @@ class AdminDashboardTest < ActionDispatch::IntegrationTest
   test 'logged in admin sees dashboard page' do
     admin = User.create(username: "admin",
                         password: "password",
-                        role: 1)
+                        role:      1)
 
     ApplicationController.any_instance.stubs(:current_user).returns(admin)
     visit admin_dashboard_path(admin)
@@ -14,7 +14,7 @@ class AdminDashboardTest < ActionDispatch::IntegrationTest
   test 'default user does not see admin dashboard' do
     user = User.create(username: "default_user",
                        password: "password",
-                       role: 0)
+                       role:      0)
 
     ApplicationController.any_instance.stubs(:current_user).returns(user)
     visit admin_dashboard_path(user)
