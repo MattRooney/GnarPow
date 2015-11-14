@@ -27,23 +27,4 @@ class Cart
   def remove_items(params)
     self.contents.delete_if { |item_id, _quantity| item_id == params[:id] }
   end
-
-  # def items
-  #   contents.map do |item_id, count|
-  #     item = Item.find(item_id)
-  #     CartItem.new(item, count)
-  #   end
-  # end
 end
-
-# class CartItem < SimpleDelegator
-#   attr_accessor :count
-#
-#   def initialize(item, count)
-#     super(item)
-#
-#
-#     @count = count
-#   end
-#
-# end

@@ -1,6 +1,10 @@
 class OrdersController < ApplicationController
   def index
-    @orders = current_user.orders
+    if current_user
+      @orders = current_user.orders
+    else
+      render file: 'public/404' unless current_admin?
+    end
   end
 
   def show
