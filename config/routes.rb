@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :cart_items, only: [:create, :destroy, :update]
   resources :items, only: [:index, :show]
   resources :categories, only: [:show, :index], param: :slug
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show, :edit, :update]
   namespace :admin do
     resources :dashboard, only: [:show]
   end
