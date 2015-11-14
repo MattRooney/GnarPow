@@ -28,14 +28,21 @@ class RegisteredUserCannotViewAnothersUsersDashboardTest < ActionDispatch::Integ
 
     visit "/users/1"
     assert page.has_content?("name1's Dashboard")
+    visit "/cart"
+    assert page.has_content?("$0")
     visit "/users/2"
     assert page.has_content?("name1's Dashboard")
+    visit "/cart"
+    assert page.has_content?("$0")
     visit "/users/3"
     assert page.has_content?("name1's Dashboard")
     visit "/users/22"
     assert page.has_content?("name1's Dashboard")
     visit "/users/#{old_user.id}"
     assert page.has_content?("name1's Dashboard")
+
+    visit "/cart"
+    assert page.has_content?("$0")
 
     visit "/orders"
     assert page.has_content?("Your Orders")
