@@ -10,10 +10,7 @@ class OrdersController < ApplicationController
 
   def create
     if current_user
-      order = current_user.orders.create!(current_status: 'completed')
-      order_items = session[:cart].each do |item_id, quantity|
-        order.order_items.create(item_id: item_id, quantity: quantity)
-      end
+      current_user.set_order(session[:cart])
       session.delete(:cart)
       flash[:success] = 'Order was successfully placed'
       redirect_to orders_path
