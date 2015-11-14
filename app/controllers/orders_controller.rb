@@ -20,7 +20,6 @@ class OrdersController < ApplicationController
     else
       flash[:login] = 'You must be logged in to check out'
       redirect_to login_path
-      # redirect_to login_path(location: "#{request.path}")
     end
   end
 end
