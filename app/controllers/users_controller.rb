@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       redirect_to @user
       flash[:success] = "Logged in as #{@user.username}"
     else
-      flash.now[:error] = "Username and password are required."
+      flash.now[:error] = 'Username and password are required.'
       render :new
     end
   end

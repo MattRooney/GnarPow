@@ -4,5 +4,5 @@ class Order < ActiveRecord::Base
   has_many :items, through: :order_items
 
   validates :current_status, presence: true,
-            inclusion: { in: %w(completed ordered paid canceled) }
+                             inclusion: { in: %w(completed ordered paid canceled) }
 end
