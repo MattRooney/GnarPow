@@ -15,14 +15,13 @@ class CartItemsController < ApplicationController
       destroy
     else
       @cart.update_quantity(params)
-      # @cart.contents.select { |item, _quantity| item == params[:id] }.map { |item, _quantity| @cart.contents[item] = params[:quantity].to_i }
       redirect_to cart_path
     end
   end
 
   def destroy
     item = Item.find(params[:id].to_i)
-    if @cart.contents.delete_if { |item_id, _quantity| item_id == params[:id] }
+    if @cart.remove_items(params)
       flash[:remove] = "You have removed the item #{view_context.link_to(item.name, item_path(item))} from your cart."
     end
     redirect_to cart_path

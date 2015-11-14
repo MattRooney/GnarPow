@@ -24,6 +24,10 @@ class Cart
                             self.contents[item] = params[:quantity].to_i }
   end
 
+  def remove_items(params)
+    self.contents.delete_if { |item_id, _quantity| item_id == params[:id] }
+  end
+
   # def items
   #   contents.map do |item_id, count|
   #     item = Item.find(item_id)
