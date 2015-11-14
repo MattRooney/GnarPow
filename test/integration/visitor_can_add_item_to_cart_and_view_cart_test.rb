@@ -37,7 +37,8 @@ class VisitorCanAddItemToCartAndViewCartTest < ActionDispatch::IntegrationTest
     visit items_path
 
     click_link "Add To Cart"
-    click_link "Cart"
+    click_link "go-to-cart"
+
     assert_equal current_path, cart_path
     assert page.has_content?("Gnar possum")
     assert page.has_content?("1000")
@@ -64,7 +65,8 @@ class VisitorCanAddItemToCartAndViewCartTest < ActionDispatch::IntegrationTest
     within("#item_#{item_3.id}") do
       click_link "Add To Cart"
     end
-    click_link "Cart"
+
+    click_link "go-to-cart"
     assert_equal current_path, cart_path
     assert page.has_content?("Gnar possum")
     assert page.has_content?("1000")

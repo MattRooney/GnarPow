@@ -39,3 +39,21 @@
 .flash_remove {
   color: green;
 }
+
+.cart-count {
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: #fff !important;
+  border-radius: 2px;
+  color: #fff;
+  background-color: #26a69a;
+  border-radius: 2px;
+}
+
+span.badge.cart-count:after {
+  content: " in cart"; }
+
+
+.cart-icon {
+  margin-top: 20px;
+}

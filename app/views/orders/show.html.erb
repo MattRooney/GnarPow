@@ -15,10 +15,10 @@
   <% @order.order_items.each do |order_item| %>
   <tbody>
     <tr>
-      <td><%= link_to Item.find(order_item.item_id).name.capitalize, item_path(Item.find(order_item.item_id).id) %></td>
-      <td>$<%= Item.find(order_item.item_id).price %></td>
+      <td><%= link_to order_item.item.name.capitalize, item_path(order_item.item.id) %></td>
+      <td>$<%= order_item.item.price %></td>
       <td><%= order_item.quantity %></td>
-      <td>$<%= Item.find(order_item.item_id).price * order_item.quantity %></td>
+      <td>$<%= order_item.item.price * order_item.quantity %></td>
     </tr>
     <% end %>
     <tr>

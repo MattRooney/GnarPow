@@ -1,17 +1,16 @@
 Rails.application.routes.draw do
   get "/", to: "items#index"
+  get "/cart", to: "cart#show"
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
+
   resources :cart_items, only: [:create, :destroy, :update]
   resources :items, only: [:index, :show]
   resources :categories, only: [:show, :index], param: :slug
   resources :users, only: [:new, :create, :show]
-  resources :orders, only: [:index, :show]
   namespace :admin do
     resources :dashboard, only: [:show]
   end
-
-
-  get "/login", to: "sessions#new"
-  post "/login", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy"
-  get '/cart', to: "cart#show"
+  resources :orders, only: [:index, :show, :create]
 end
