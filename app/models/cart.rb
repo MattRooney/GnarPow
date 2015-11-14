@@ -19,31 +19,31 @@ class Cart
   end
 
   def update_quantity(params)
-    self.contents.select { |item, _quantity| item == params[:id] }
-                    .map { |item, _quantity|
-                            self.contents[item] = params[:quantity].to_i }
+    contents.select { |item, _quantity| item == params[:id] }
+      .map do |item, _quantity|
+      contents[item] = params[:quantity].to_i
+    end
   end
 
   def remove_items(params)
-    self.contents.delete_if { |item_id, _quantity| item_id == params[:id] }
+    contents.delete_if { |item_id, _quantity| item_id == params[:id] }
   end
 
   def complete_cart
     {
-      items: self.items,
-      total_price: self.total_price
+      items: items,
+      total_price: total_price
     }
   end
 
   def items
-    item_ids = self.contents.keys
+    item_ids = contents.keys
     items = Item.find(item_ids)
   end
 
   def total_price
-    self.contents.map { |item_id, quantity| Item.find(item_id.to_i).price * quantity }.sum
+    contents.map { |item_id, quantity| Item.find(item_id.to_i).price * quantity }.sum
   end
-
 
   # def items
   #   contents.map do |item_id, count|
