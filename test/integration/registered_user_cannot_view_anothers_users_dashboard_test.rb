@@ -1,9 +1,9 @@
 require 'test_helper'
 
-class RegisteredUserCannotViewAnothersUsersOrderTest < ActionDispatch::IntegrationTest
+class RegisteredUserCannotViewAnothersUsersDashboardTest < ActionDispatch::IntegrationTest
   include CategoryItemsSetup
 
-  test 'a registered user cannot view another users orders' do
+  test 'a registered user cannot view another users dashboard' do
     create_categories_items_user_order_and_login
     old_user = User.first
 
@@ -26,8 +26,24 @@ class RegisteredUserCannotViewAnothersUsersOrderTest < ActionDispatch::Integrati
     assert_equal "Matt", old_user.username
     assert_equal "/users/#{current_user.id}", current_path
 
+    visit "/users/1"
+    assert page.has_content?("name1's Dashboard")
+    visit "/users/2"
+    assert page.has_content?("name1's Dashboard")
+    visit "/users/3"
+    assert page.has_content?("name1's Dashboard")
+    visit "/users/22"
+    assert page.has_content?("name1's Dashboard")
+    visit "/users/#{old_user.id}"
+    assert page.has_content?("name1's Dashboard")
+
     visit "/orders"
+    assert page.has_content?("Your Orders")
     refute page.has_content?("$2000")
     refute page.has_content?("Gnar possum")
+    refute page.has_content?("completed")
+    refute page.has_content?("ordered")
+    refute page.has_content?("paid")
+    refute page.has_content?("canceled")
   end
 end
