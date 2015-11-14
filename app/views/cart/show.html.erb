@@ -1,4 +1,4 @@
-<table>
+<table class="center-align">
   <thead>
     <col>
     <col>
@@ -6,7 +6,8 @@
     <col>
     <col>
     <col>
-    <col width="50">
+    <col width="130">
+    <col class="center-align">
     <tr>
       <th></th>
       <th>Name</th>
@@ -15,7 +16,6 @@
       <th>Quantity</th>
       <th>Subtotal</th>
       <th>Update Quantity</th>
-      <th>Remove Item</th>
     </tr>
   </thead>
   <% @items.each do |item| %>
@@ -30,10 +30,10 @@
       <td><%= form_tag(cart_item_path(item), method: "patch") do %>
        <%= label_tag :quantity %>
        <%= number_field_tag :quantity %>
-       <%= submit_tag "Update Quantity" %>
+       <%= submit_tag "Update" %>
       <% end %>
       </td>
-      <td><%= link_to "X", cart_item_path(item.id), method: :delete, id:"Remove Item" %></td>
+      <td class="center-align"><%= link_to "Remove Item", cart_item_path(item.id), method: :delete, id:"Remove Item" %></td>
     </tr>
     <% end %>
     <tr>
