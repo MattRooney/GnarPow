@@ -19,31 +19,30 @@ class Cart
   end
 
   def update_quantity(params)
-    self.contents.select { |item, _quantity| item == params[:id] }
-                    .map { |item, _quantity|
-                            self.contents[item] = params[:quantity].to_i }
+    contents.select { |item, _quantity| item == params[:id] }
+      .map do |item, _quantity|
+      contents[item] = params[:quantity].to_i
+    end
   end
 
   def remove_items(params)
-    self.contents.delete_if { |item_id, _quantity| item_id == params[:id] }
+    contents.delete_if { |item_id, _quantity| item_id == params[:id] }
   end
 
-  # def items
-  #   contents.map do |item_id, count|
-  #     item = Item.find(item_id)
-  #     CartItem.new(item, count)
-  #   end
-  # end
+  def items
+    contents.map do |item_id, count|
+      item = Item.find(item_id)
+      CartItem.new(item, count)
+    end
+  end
 end
 
-# class CartItem < SimpleDelegator
-#   attr_accessor :count
-#
-#   def initialize(item, count)
-#     super(item)
-#
-#
-#     @count = count
-#   end
-#
-# end
+class CartItem < SimpleDelegator
+  attr_accessor :count
+
+  def initialize(item, count)
+    super(item)
+
+    @count = count
+  end
+end

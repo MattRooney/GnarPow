@@ -11,9 +11,9 @@ class ACartItemsQuantityCanBeUpdatedTest < ActionDispatch::IntegrationTest
     click_link 'go-to-cart'
     assert_equal current_path, cart_path
 
-    fill_in "Quantity", with: 3
-    click_button "Update"
-    assert page.has_content?("Gnar possum")
-    assert page.has_content?("3000")
+    fill_in 'Quantity', with: 3
+    click_button 'Update'
+    assert page.has_content?('Gnar possum')
+    assert page.has_content?('3000')
   end
 end
