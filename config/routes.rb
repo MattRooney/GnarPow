@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get "/", to: "items#index"
-  get '/cart', to: "cart#show"
+  get "/cart", to: "cart#show"
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
