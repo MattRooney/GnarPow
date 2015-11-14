@@ -4,8 +4,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
-    @total = @order.order_items.map { |order_item| Item.find(order_item.item_id).price * order_item.quantity }.sum
+    @order_data = Order.find(params[:id]).orders_hash
   end
 
   def create
