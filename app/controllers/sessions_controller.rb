@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       redirect_to @user
       flash[:success] = "Logged in as #{@user.username}"
     else
-      flash[:notice] = "Invalid Login"
+      flash[:notice] = 'Invalid Login'
       redirect_to login_path
     end
   end
