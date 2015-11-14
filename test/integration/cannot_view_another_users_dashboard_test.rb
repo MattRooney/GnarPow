@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class RegisteredUserCannotViewAnothersUsersDashboardTest < ActionDispatch::IntegrationTest
+class CannotViewAnotherUsersDashboardTest < ActionDispatch::IntegrationTest
   include CategoryItemsSetup
 
   test 'a registered user cannot view another users dashboard' do

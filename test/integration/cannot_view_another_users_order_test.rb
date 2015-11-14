@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class RegisteredUserCannotViewAnothersUsersOrderTest < ActionDispatch::IntegrationTest
+class CannotViewAnotherUsersOrderTest < ActionDispatch::IntegrationTest
   include CategoryItemsSetup
 
   test 'a registered user cannot view another users orders' do
