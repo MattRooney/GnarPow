@@ -18,6 +18,12 @@ class Cart
     contents[item_id.to_s]
   end
 
+  def update_quantity(params)
+    self.contents.select { |item, _quantity| item == params[:id] }
+                    .map { |item, _quantity|
+                            self.contents[item] = params[:quantity].to_i }
+  end
+
   # def items
   #   contents.map do |item_id, count|
   #     item = Item.find(item_id)

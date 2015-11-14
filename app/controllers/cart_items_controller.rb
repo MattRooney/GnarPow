@@ -14,7 +14,8 @@ class CartItemsController < ApplicationController
     if params[:quantity].to_i <= 0
       destroy
     else
-      @cart.contents.select { |item, _quantity| item == params[:id] }.map { |item, _quantity| @cart.contents[item] = params[:quantity].to_i }
+      @cart.update_quantity(params)
+      # @cart.contents.select { |item, _quantity| item == params[:id] }.map { |item, _quantity| @cart.contents[item] = params[:quantity].to_i }
       redirect_to cart_path
     end
   end
