@@ -119,7 +119,9 @@ module CategoryItemsSetup
     end
 
     current_user_order = current_user.orders.create(current_status: "ordered")
-    current_user_order.order_items.create(item_id: Item.first.id, order_id: current_user_order.id, quantity: 2)
+    current_user_order.order_items.create(item_id: Item.first.id,
+                                          order_id: current_user_order.id,
+                                          quantity: 2)
   end
 
   def create_and_login_additional_users(num)
