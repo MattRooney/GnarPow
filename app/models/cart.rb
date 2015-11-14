@@ -42,8 +42,10 @@ class Cart
   end
 
   def total_price
-    contents.map { |item_id, quantity|
-      Item.find(item_id.to_i).price * quantity }.sum
+    contents.map do |item_id, quantity|
+      Item.find(item_id.to_i).price * quantity
+    end
+    .sum
   end
 
   def items
