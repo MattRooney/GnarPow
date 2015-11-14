@@ -38,11 +38,12 @@ class Cart
 
   def items
     item_ids = contents.keys
-    items = Item.find(item_ids)
+    Item.find(item_ids)
   end
 
   def total_price
-    contents.map { |item_id, quantity| Item.find(item_id.to_i).price * quantity }.sum
+    contents.map { |item_id, quantity|
+      Item.find(item_id.to_i).price * quantity }.sum
   end
 
   def items
