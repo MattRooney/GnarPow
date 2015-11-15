@@ -3,5 +3,4 @@ class Admin::DashboardController < Admin::BaseController
     @user = current_user
     @orders = Order.all
   end
-
 end
