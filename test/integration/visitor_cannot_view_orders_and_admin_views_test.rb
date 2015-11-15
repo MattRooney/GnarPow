@@ -23,18 +23,67 @@ class VisitorCannotViewOrdersAndAdminViewsTest < ActionDispatch::IntegrationTest
   end
 
   test "an unauthenticated user cannot view a users cart" do
-    skip
+    create_categories_items_user_order_and_login
+    add_items_to_cart
+    visit "/cart"
+
+    within(".cart-count") do
+      assert page.has_content?("3")
+    end
+
+    within(".left") do
+      assert page.has_content?("$2240")
+    end
+
+    click_link("Logout")
+
+    within(".cart-count") do
+      assert page.has_content?("0")
+    end
+
+    visit "/cart"
+
+    within(".cart-count") do
+      refute page.has_content?("3")
+    end
+
+    within(".left") do
+      refute page.has_content?("$2240")
+    end
   end
 
   test "an unauthenticated user cannot view a users dashboard" do
-    skip
+    create_categories_items_user_order_and_login
+    add_items_to_cart
+    old_user = User.find_by(username: "Matt")
+    click_link("Logout")
+
+    visit "/users/#{old_user.id}"
+
+    assert page.has_content?("404")
   end
 
   test "an unauthenticated user cannot view admin dashboard" do
-    skip
+    admin = User.create(username: "admin", password: "admin_password", role: 1)
+    visit "/"
+    click_link("Login")
+
+    fill_in "Username", with: "admin"
+    fill_in "Password", with: "admin_password"
+    click_button "Login"
+
+    visit "/admin/dashboard/#{admin.id}"
+
+    assert page.has_content?("Welcome, Admin!")
+
+    click_link("Logout")
+
+    visit "/admin/dashboard/#{admin.id}"
+
+    assert page.has_content?("404")
   end
 
   test "an unauthenticated user cannot make themselve an admin" do
-    skip
+    
   end
 end
