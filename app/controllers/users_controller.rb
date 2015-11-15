@@ -22,6 +22,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    if @user.update(user_params)
+      if current_admin?
+        redirect_to admin_dashboard_path
+      else
+        redirect_to @user
+      end
+    else
+      flash.now[:errors] = @user.errors.full_messages.join(', ')
+      render :edit
+    end
+  end
+
   private
 
   def user_params
