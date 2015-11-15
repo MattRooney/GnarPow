@@ -38,4 +38,17 @@ class AnExistingUserCanCheckOutToPlaceAnOrderTest < ActionDispatch::IntegrationT
       assert page.has_content?('0')
     end
   end
+
+  test "an_existing_user_cant_check_out_with_0_items" do
+    create_user
+    login_a_user
+
+    visit '/cart'
+    click_link 'Check Out'
+
+    assert_equal items_path, current_path
+
+    assert page.has_content?("There's nothing in your cart.")
+  end
+
 end
