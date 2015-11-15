@@ -38,7 +38,7 @@ class OrderTest < ActiveSupport::TestCase
 
   test 'an order is saved with a total price' do
     create_items
-    order = Order.new(current_status: "completed")
+    order = Order.new(current_status: 'completed')
     order_item = OrderItem.new(item_id: Item.last.id, order_id: order.id, quantity: 2)
     order.order_items << order_item
     order.save

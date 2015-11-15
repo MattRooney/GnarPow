@@ -6,7 +6,6 @@ class Order < ActiveRecord::Base
   validates :current_status, presence: true,
                              inclusion: { in: %w(completed ordered paid canceled) }
 
-
   before_create :total_price
 
   def orders_hash
