@@ -108,16 +108,16 @@ module CategoryItemsSetup
 
   def create_categories_items_user_order_and_login
     create_categories_and_items
-    current_user = User.create(username: "Matt", password: "gnargnar")
+    current_user = User.create(username: 'Matt', password: 'gnargnar')
     visit login_path
 
-    within(".login_form") do
-      fill_in "Username", with: "Matt"
-      fill_in "Password", with: "gnargnar"
-      click_button "Login"
+    within('.login_form') do
+      fill_in 'Username', with: 'Matt'
+      fill_in 'Password', with: 'gnargnar'
+      click_button 'Login'
     end
 
-    current_user_order = current_user.orders.create(current_status: "ordered")
+    current_user_order = current_user.orders.create(current_status: 'ordered')
     current_user_order.order_items.create(item_id: Item.first.id,
                                           order_id: current_user_order.id,
                                           quantity: 2)
@@ -131,10 +131,10 @@ module CategoryItemsSetup
     end
     visit login_path
 
-    within(".login_form") do
-      fill_in "Username", with: "name#{id}"
-      fill_in "Password", with: "password#{id}"
-      click_button "Login"
+    within('.login_form') do
+      fill_in 'Username', with: "name#{id}"
+      fill_in 'Password', with: "password#{id}"
+      click_button 'Login'
     end
   end
 end

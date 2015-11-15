@@ -31,12 +31,13 @@ class UsersController < ApplicationController
         redirect_to @user
       end
     else
-      flash.now[:errors] = @user.errors.full_messages.join(", ")
+      flash.now[:errors] = @user.errors.full_messages.join(', ')
       render :edit
     end
   end
 
   private
+
   def user_params
     params.require(:user).permit(:username, :password)
   end
