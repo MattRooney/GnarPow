@@ -6,8 +6,6 @@ class Order < ActiveRecord::Base
   validates :current_status, presence: true,
                              inclusion: { in: %w(completed ordered paid canceled) }
 
-  before_create :total_price
-
   def orders_hash
     {
       order_object: self,
@@ -16,6 +14,7 @@ class Order < ActiveRecord::Base
   end
 
   def total_price
-    self.total_price = order_items.map { |order_item| Item.find(order_item.item_id).price * order_item.quantity }.sum
+    self.order_items.map { |order_item| Item.find(order_item.item_id).price * order_item.quantity }.sum
   end
+
 end
