@@ -83,7 +83,12 @@ class VisitorCannotViewOrdersAndAdminViewsTest < ActionDispatch::IntegrationTest
     assert page.has_content?("404")
   end
 
-  test "an unauthenticated user cannot make themselve an admin" do
-    
+  test "a user cannot make themselves an admin" do
+    create_and_login_additional_users(1)
+    user = User.first
+
+    visit "/admin/dashboard/#{user.id}"
+
+    assert page.has_content?("404")
   end
 end
