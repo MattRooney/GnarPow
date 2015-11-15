@@ -1,8 +1,5 @@
 class CartController < ApplicationController
   def show
-    item_ids = @cart.contents.keys
-    @items = Item.find(item_ids)
-    @total = @cart.contents.map { |item_id, quantity| Item.find(item_id.to_i).price * quantity }.sum
-    @cart.count_of(@items)
+    @complete_cart = @cart.complete_cart
   end
 end
