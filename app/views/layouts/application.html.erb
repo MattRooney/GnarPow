@@ -10,7 +10,7 @@
 </head>
 <body>
   <%= render "partials/nav" %>
-<div class="container">
+<div class="container push-right">
     <% flash.each do |type, msg| %>
       <%= content_tag :div, sanitize(msg), class: "flash_#{type}" %>
         <body onload="Materialize.toast('<%=msg%>', 1500)">

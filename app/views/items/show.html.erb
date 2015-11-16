@@ -5,16 +5,12 @@
         <div class="row">
            <div class="col m12 m7">
              <div class="card">
-               <div class="card-image">
+               <div class="card-image aligh-center">
                  <%= image_tag @item.image.url %>
                  <span class="card-title black"><%= @item.name.upcase %></span>
                </div>
                <div class="card-content">
-                 <p><%= @item.description.capitalize %></p>
                  <p>Price: $<%= @item.price %></p>
-               </div>
-               <div class="card-action">
-                 <%= link_to "Add To Cart", cart_items_path(item_id: @item.id), method: :post %>
                </div>
              </div>
            </div>
@@ -22,10 +18,13 @@
 
       </div>
 
-      <div class="col s6">
-        <div class="left">
-        <h3 class="grey-text">Description</h3>
-        <p>This stuff is in a container.</p>
+      <div class="col offset-s2 s3 center-align">
+        <div class="center-align">
+        <h3 class="grey-text center-align">Details</h3>
+        <h4>Brand: <%= @item.brand %></h4>
+        <h6><%= @item.description.capitalize %></h6>
+        <%= link_to "Add To Cart", cart_items_path(item_id: @item.id), method: :post, class: "btn center-align" %>
+
         </div>
       </div>
     </div>
