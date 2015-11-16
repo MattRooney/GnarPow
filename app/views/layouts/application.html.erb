@@ -10,6 +10,10 @@
 </head>
 <body>
   <%= render "partials/nav" %>
+
+<% if current_page?("/") %>
+  <%= yield %>
+<% else %>
 <div class="container push-right">
     <% flash.each do |type, msg| %>
       <%= content_tag :div, sanitize(msg), class: "flash_#{type}" %>
@@ -17,6 +21,7 @@
     <% end %>
   <%= yield %>
 </div>
+<% end %>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>
 </body>
 </html>

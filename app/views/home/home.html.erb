@@ -1,0 +1,40 @@
+<script> $(document).ready(function(){
+      $('.slider').slider({full_width: true});
+    });
+</script>
+<br>
+<div class="slider">
+    <ul class="slides">
+      <li>
+        <%= image_tag "home1.jpeg" %>
+        <div class="caption center-align">
+          <h3 class="black-text">Welcome to GnarPow!</h3>
+          <h5 class="light black-text">Home of the gnarliest gear.</h5>
+          <%= link_to "SHOP", items_path, class:"btn large" %>
+        </div>
+      </li>
+      <li>
+        <%= image_tag "home2.jpeg" %>
+        <div class="caption left-align">
+          <h3></h3>
+          <h5 class="light black-text">You don't wanna get stuck <br> up here without boots...</h5>
+          <%= link_to "SHOP BOOTS", "/categories/boots", class:"btn large" %>
+        </div>
+      </li>
+      <li>
+        <%= image_tag "home3.jpeg" %>
+        <div class="caption right-align black-text">
+          <h3>Checkout this month's FEATURED BOARD</h3>
+          <h5 class="light black-text">Every quiver needs a gnar possum.</h5>
+          <%= link_to "SHOP GNAR POSSUM", "/items/4", class:"btn large" %>
+        </div>
+      </li>
+      <li>
+        <%= image_tag "home4.jpeg" %>
+        <div class="caption center-align black-text">
+          <h3>GnarPow!</h3>
+          <h5 class="light black-text">Keep shreddin.</h5>
+        </div>
+      </li>
+    </ul>
+  </div>
