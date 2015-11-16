@@ -39,7 +39,7 @@ class AnExistingUserCanCheckOutToPlaceAnOrderTest < ActionDispatch::IntegrationT
     end
   end
 
-  test "an_existing_user_cant_check_out_with_0_items" do
+  test 'an_existing_user_cant_check_out_with_0_items' do
     create_user
     login_a_user
 
@@ -50,5 +50,4 @@ class AnExistingUserCanCheckOutToPlaceAnOrderTest < ActionDispatch::IntegrationT
 
     assert page.has_content?("There's nothing in your cart.")
   end
-
 end
