@@ -20,10 +20,10 @@
       <td><%= Order.completed.count %></td>
     </tr>
     <tr>
-      <td><%=  %></td>
-      <td><%= Order.paid.count %></td>
-      <td><%= Order.canceled.count %></td>
-      <td><%= Order.completed.count %></td>
+      <td><%= link_to "View Ordered", admin_dashboard_path('ordered'), :order_status => 'ordered' %></td>
+      <td><%= link_to "View Paid", admin_dashboard_path('paid'), :order_status => 'paid' %></td>
+      <td><%= link_to "View Canceled", admin_dashboard_path('canceled') %></td>
+      <td><%= link_to "View Completed", admin_dashboard_path('completed') %></td>
     </tr>
   </tbody>
 </table>
