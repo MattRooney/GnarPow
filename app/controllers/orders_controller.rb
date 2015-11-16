@@ -1,6 +1,11 @@
 class OrdersController < ApplicationController
   def index
-    @orders = current_user.orders
+    if current_user
+      @orders = current_user.orders
+    else
+      flash[:non_user] = "You must be logged in to view your orders"
+      render file: 'public/404'
+    end
   end
 
   def show
@@ -8,9 +13,13 @@ class OrdersController < ApplicationController
   end
 
   def create
-    if current_user
+    if session[:cart].nil? || session[:cart] == {}
+      flash[:no_items] = "There's nothing in your cart."
+      redirect_to items_path
+    elsif current_user && session[:cart]
       current_user.set_order(session[:cart])
       session.delete(:cart)
+      # UserMailer.sample_email(current_user).deliver_now
       flash[:success] = 'Order was successfully placed'
       redirect_to orders_path
     else
