@@ -11,8 +11,6 @@
 <body>
   <%= render "partials/nav" %>
 <div class="container">
-  <p>Cart: <%= @cart.total %></p>
-  <!-- why doesn't sanitize work when in a partial? -->
     <% flash.each do |type, msg| %>
       <%= content_tag :div, sanitize(msg), class: "flash_#{type}" %>
     <% end %>
