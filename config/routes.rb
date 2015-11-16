@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/', to: 'items#index'
+  get '/', to: 'home#home'
   get '/cart', to: 'cart#show'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
