@@ -3,7 +3,7 @@
 <h2>Welcome, <%= @user.username.capitalize %>!</h2><br>
 <%= link_to "Edit Account Info", edit_user_path(@user) %>
 <h3>Orders Status</h3>
-<table>
+<table class="by-status">
   <thead>
     <tr>
       <th>Ordered</th>
@@ -22,7 +22,7 @@
   </tbody>
 </table>
 <h3>All Orders</h3>
-<table>
+<table class="all-orders">
       <thead>
         <tr>
             <th class="center-align">Order</th>
@@ -32,7 +32,6 @@
             <th></th>
         </tr>
       </thead>
-
       <tbody>
         <% @orders.each do |order| %>
         <tr>
