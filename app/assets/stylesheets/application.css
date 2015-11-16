@@ -67,3 +67,11 @@ span.badge.cart-count:after {
 .indicator-item.active {
     background-color: lightblue !important;
   }
+
+.slides {
+  height: 570px !important;
+}
+
+.slider {
+  height: 610px !important;
+}
