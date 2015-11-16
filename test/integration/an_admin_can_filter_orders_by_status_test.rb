@@ -18,9 +18,9 @@ class AnAdminCanFilterOrdersByStatusTest < ActionDispatch::IntegrationTest
     assert_equal admin_dashboard_path('paid'), current_path
 
     within('.orders') do
-      assert page.has_content?("Placed On")
-      assert page.has_content?("Status")
-      assert page.has_content?("paid")
+      assert page.has_content?('Placed On')
+      assert page.has_content?('Status')
+      assert page.has_content?('paid')
     end
   end
 
@@ -40,9 +40,9 @@ class AnAdminCanFilterOrdersByStatusTest < ActionDispatch::IntegrationTest
     assert_equal admin_dashboard_path('canceled'), current_path
 
     within('.orders') do
-      assert page.has_content?("Placed On")
-      assert page.has_content?("Status")
-      assert page.has_content?("canceled")
+      assert page.has_content?('Placed On')
+      assert page.has_content?('Status')
+      assert page.has_content?('canceled')
     end
   end
 
@@ -62,9 +62,9 @@ class AnAdminCanFilterOrdersByStatusTest < ActionDispatch::IntegrationTest
     assert_equal admin_dashboard_path('completed'), current_path
 
     within('.orders') do
-      assert page.has_content?("Placed On")
-      assert page.has_content?("Status")
-      assert page.has_content?("completed")
+      assert page.has_content?('Placed On')
+      assert page.has_content?('Status')
+      assert page.has_content?('completed')
     end
   end
 
@@ -84,9 +84,9 @@ class AnAdminCanFilterOrdersByStatusTest < ActionDispatch::IntegrationTest
     assert_equal admin_dashboard_path('ordered'), current_path
 
     within('.orders') do
-      assert page.has_content?("Placed On")
-      assert page.has_content?("Status")
-      assert page.has_content?("ordered")
+      assert page.has_content?('Placed On')
+      assert page.has_content?('Status')
+      assert page.has_content?('ordered')
     end
   end
 end
