@@ -7,7 +7,7 @@ class AdminDashboardTest < ActionDispatch::IntegrationTest
                         role:      1)
 
     ApplicationController.any_instance.stubs(:current_user).returns(admin)
-    visit admin_dashboard_path(admin)
+    visit admin_dashboard_index_path(admin)
 
     assert page.has_content?('Welcome, Admin!')
   end
@@ -29,7 +29,7 @@ class AdminDashboardTest < ActionDispatch::IntegrationTest
                        role:      0)
 
     ApplicationController.any_instance.stubs(:current_user).returns(user)
-    visit admin_dashboard_path(user)
+    visit admin_dashboard_index_path(user)
 
     refute page.has_content?('Welcome, Default_user!')
     assert page.has_content?("The page you were looking for doesn't exist.")

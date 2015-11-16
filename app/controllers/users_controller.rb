@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.update(user_params)
       if current_admin?
-        redirect_to admin_dashboard_path
+        redirect_to admin_dashboard_index_path
       else
         redirect_to @user
       end

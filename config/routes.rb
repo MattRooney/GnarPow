@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:show, :index], param: :slug
   resources :users, only: [:new, :create, :show, :edit, :update]
   namespace :admin do
-    resources :dashboard, only: [:show]
+    resources :dashboard, only: [:show, :index]
   end
   resources :orders, only: [:index, :show, :create]
 end

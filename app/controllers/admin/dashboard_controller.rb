@@ -1,5 +1,5 @@
 class Admin::DashboardController < Admin::BaseController
-  def show
+  def index
     @user = current_user
     @orders = Order.all
   end
