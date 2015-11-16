@@ -71,7 +71,9 @@ module CategoryItemsSetup
   def create_items_associated_with_orders
     create_categories_and_items
     order =Order.create(current_status: 'completed')
-    order.items << [Item.first, Item.last]
+    order_item = OrderItem.new(item_id: Item.last.id, order_id: order.id, quantity: 2)
+    order.order_items << order_item
+    order.save
   end
 
   def create_user

@@ -16,6 +16,5 @@ class AdminCanSeeOrdersTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Welcome, Admin!")
     assert page.has_content?("Orders")
     assert page.has_content?("Status")
-
   end
 end
