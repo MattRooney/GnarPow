@@ -7,15 +7,25 @@ class VisitorCanAddItemToCartAndViewCartTest < ActionDispatch::IntegrationTest
                 price: 1000)
 
     visit items_path
-    assert page.has_content?('Cart: 0')
+
+    within('.cart-count') do
+      assert page.has_content?('0')
+    end
+
     click_link 'Add To Cart'
 
     assert page.has_content?('You now have 1 gnar possum in your cart.')
-    assert page.has_content?('Cart: 1')
+
+    within('.cart-count') do
+      assert page.has_content?('1')
+    end
 
     click_link 'Add To Cart'
     assert page.has_content?('You now have 2 gnar possums in your cart.')
-    assert page.has_content?('Cart: 2')
+
+    within('.cart-count') do
+      assert page.has_content?('2')
+    end
   end
 
   test 'visitor can add item to cart from show page' do
@@ -26,7 +36,9 @@ class VisitorCanAddItemToCartAndViewCartTest < ActionDispatch::IntegrationTest
     click_link 'View Item'
     click_link 'Add To Cart'
 
-    assert page.has_content?('Cart: 1')
+    within('.cart-count') do
+      assert page.has_content?('1')
+    end
   end
 
   test 'visitor can view cart with selected items' do

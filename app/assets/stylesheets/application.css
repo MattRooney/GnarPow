@@ -19,7 +19,9 @@
 }
 
 .card-image img {
-  padding: 5px;
+  padding: 15px;
+  width: 78% !important;
+  margin: auto;
 }
 
 .push-logo-right {
@@ -30,6 +32,10 @@
     width: 100%;
     text-align: center;
     opacity: 0.7;
+}
+
+.card .card-content p {
+  margin-bottom: 15px !important;
 }
 
 .add-to-cart {

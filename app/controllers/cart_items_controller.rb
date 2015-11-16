@@ -22,7 +22,7 @@ class CartItemsController < ApplicationController
   def destroy
     item = Item.find(params[:id].to_i)
     if @cart.remove_items(params)
-      flash[:remove] = "You have removed the item #{view_context.link_to(item.name, item_path(item))} from your cart."
+      flash[:remove] = "You have removed the item: (#{view_context.link_to(item.name, item_path(item))})   from your cart."
     end
     redirect_to cart_path
   end
