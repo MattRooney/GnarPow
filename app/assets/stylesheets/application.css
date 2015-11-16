@@ -63,3 +63,7 @@ span.badge.cart-count:after {
 .cart-icon {
   margin-top: 20px;
 }
+
+.indicator-item.active {
+    background-color: lightblue !important;
+  }
