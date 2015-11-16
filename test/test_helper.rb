@@ -68,6 +68,17 @@ module CategoryItemsSetup
     Order.create(current_status: 'completed')
   end
 
+  def create_items_associated_with_orders
+    create_categories_and_items
+    order   = Order.create(current_status: 'completed')
+    order_2 = Order.create(current_status: 'completed')
+    order_3 = Order.create(current_status: 'paid')
+    order_4 = Order.create(current_status: 'canceled')
+    order_item = OrderItem.new(item_id: Item.last.id, order_id: order.id, quantity: 2)
+    order.order_items << order_item
+    order.save
+  end
+
   def create_user
     User.create(username: 'Matt', password: 'gnargnar')
   end

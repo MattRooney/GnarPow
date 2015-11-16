@@ -45,7 +45,7 @@ class AnItemCanBeRemovedFromCartTest < ActionDispatch::IntegrationTest
 
     click_link 'Remove Item'
     within('.flash_remove') do
-      assert page.has_content?('You have removed the item gnar possum from your cart.')
+      assert page.has_content?('You have removed the item: (gnar possum) from your cart.')
     end
   end
 end
