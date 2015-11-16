@@ -8,7 +8,7 @@ class VisitorCanAddItemToCartAndViewCartTest < ActionDispatch::IntegrationTest
 
     visit items_path
 
-    within(".cart-count") do
+    within('.cart-count') do
       assert page.has_content?('0')
     end
 
@@ -16,17 +16,16 @@ class VisitorCanAddItemToCartAndViewCartTest < ActionDispatch::IntegrationTest
 
     assert page.has_content?('You now have 1 gnar possum in your cart.')
 
-    within(".cart-count") do
+    within('.cart-count') do
       assert page.has_content?('1')
     end
 
     click_link 'Add To Cart'
     assert page.has_content?('You now have 2 gnar possums in your cart.')
 
-    within(".cart-count") do
+    within('.cart-count') do
       assert page.has_content?('2')
     end
-
   end
 
   test 'visitor can add item to cart from show page' do
@@ -37,7 +36,7 @@ class VisitorCanAddItemToCartAndViewCartTest < ActionDispatch::IntegrationTest
     click_link 'View Item'
     click_link 'Add To Cart'
 
-    within(".cart-count") do
+    within('.cart-count') do
       assert page.has_content?('1')
     end
   end
