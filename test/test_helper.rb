@@ -74,6 +74,7 @@ module CategoryItemsSetup
     order_2 = Order.create(current_status: 'completed')
     order_3 = Order.create(current_status: 'paid')
     order_4 = Order.create(current_status: 'canceled')
+    order_5 = Order.create(current_status: 'ordered')
     order_item = OrderItem.new(item_id: Item.last.id, order_id: order.id, quantity: 2)
     order.order_items << order_item
     order.save

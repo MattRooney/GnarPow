@@ -1,46 +1,23 @@
-<h1>Admin Dashboard</h1>
+<h2><%= params[:id].capitalize %></h2>
+  <table class="orders">
+        <thead>
+          <tr>
+              <th class="center-align">Order Number</th>
+              <th>Placed On</th>
+              <th>Status</th>
+              <th></th>
+          </tr>
+        </thead>
 
-<h2>Welcome, <%= @user.username.capitalize %>!</h2><br>
-<%= link_to "Edit Account Info", edit_user_path(@user) %>
-<h3>Orders Status</h3>
-<table class="by-status">
-  <thead>
-    <tr>
-      <th>Ordered</th>
-      <th>Paid</th>
-      <th>Cancelled</th>
-      <th>Completed</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= Order.ordered.count %></td>
-      <td><%= Order.paid.count %></td>
-      <td><%= Order.canceled.count %></td>
-      <td><%= Order.completed.count %></td>
-    </tr>
-  </tbody>
-</table>
-<h3>All Orders</h3>
-<table class="all-orders">
-      <thead>
-        <tr>
-            <th class="center-align">Order</th>
-            <th>Placed On</th>
-            <th>Total Price</th>
-            <th>Status</th>
-            <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @orders.each do |order| %>
-        <tr>
-          <td class="center-align"><%= order.id %></td>
-          <td><%= order.created_at.time.strftime("%b %-d, %Y %-l:%M %p") %></td>
-          <td>$<%= order.total_price %></td>
-          <td><%= order.current_status %></td>
-          <td><%= link_to "View Order", order_path(order) %></td>
-        </tr>
-  <% end %>
-      </tbody>
-    </table>
+        <tbody>
+
+    <% @orders.each do |order| %>
+          <tr>
+            <td class="center-align"><%= order.id %></td>
+            <td><%= order.created_at.time.strftime("%b %-d, %Y %-l:%M %p") %></td>
+            <td><%= order.current_status %></td>
+            <td><%= link_to "View Order", order_path(order) %></td>
+          </tr>
+    <% end %>
+        </tbody>
+      </table>

@@ -72,13 +72,13 @@ class VisitorCannotViewOrdersAndAdminViewsTest < ActionDispatch::IntegrationTest
     fill_in 'Password', with: 'admin_password'
     click_button 'Login'
 
-    visit "/admin/dashboard/#{admin.id}"
+    visit '/admin/dashboard'
 
     assert page.has_content?('Welcome, Admin!')
 
     click_link('Logout')
 
-    visit "/admin/dashboard/#{admin.id}"
+    visit '/admin/dashboard'
 
     assert page.has_content?('404')
   end
@@ -87,7 +87,7 @@ class VisitorCannotViewOrdersAndAdminViewsTest < ActionDispatch::IntegrationTest
     create_and_login_additional_users(1)
     user = User.first
 
-    visit "/admin/dashboard/#{user.id}"
+    visit '/admin/dashboard'
 
     assert page.has_content?('404')
   end

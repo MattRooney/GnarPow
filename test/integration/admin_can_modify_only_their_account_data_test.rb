@@ -7,7 +7,7 @@ class AdminCanModifyOnlyTheirAccountDataTest < ActionDispatch::IntegrationTest
                         role:      1)
 
     ApplicationController.any_instance.stubs(:current_user).returns(admin)
-    visit admin_dashboard_path(admin)
+    visit admin_dashboard_index_path(admin)
     assert page.has_content?('Welcome, Admin!')
     click_link 'Edit Account Info'
     assert page.has_content?('Edit User Profile')
