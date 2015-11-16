@@ -13,6 +13,7 @@
 <div class="container">
     <% flash.each do |type, msg| %>
       <%= content_tag :div, sanitize(msg), class: "flash_#{type}" %>
+        <body onload="Materialize.toast('<%=msg%>', 1500)">
     <% end %>
   <%= yield %>
 </div>
