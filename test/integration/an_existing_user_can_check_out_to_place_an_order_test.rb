@@ -30,7 +30,7 @@ class AnExistingUserCanCheckOutToPlaceAnOrderTest < ActionDispatch::IntegrationT
     assert_equal '/orders', current_path
 
     within('table') do
-      assert page.has_content?('completed')
+      assert page.has_content?('ordered')
       assert page.has_content?('View Order')
     end
 
