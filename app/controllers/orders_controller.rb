@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
   end
 
   def update
-    Order.find(params[:id]).update_attributes(current_status: "canceled")
+    Order.find(params[:id]).update_attributes(current_status: params[:order_status])
     redirect_to admin_dashboard_index_path
   end
 end

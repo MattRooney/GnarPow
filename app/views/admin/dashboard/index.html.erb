@@ -45,8 +45,12 @@
           <td><%= order.created_at.time.strftime("%b %-d, %Y %-l:%M %p") %></td>
           <td>$<%= order.total_price %></td>
           <td><%= order.current_status %></td>
-          <% if order.current_status == "paid" || order.current_status == "completed" %>
-            <td><%= link_to "View Order", order_path(order) %> || <%= link_to "Cancel", order_path(order), method: :patch, :order_status => 'canceled' %></td>
+          <% if order.current_status == "completed" %>
+            <td><%= link_to "View Order", order_path(order) %> || <%= link_to "Cancel", order_path(order, :order_status => 'canceled'), method: :patch %></td>
+          <% elsif order.current_status == "ordered" %>
+            <td><%= link_to "View Order", order_path(order) %> || <%= link_to "Mark as paid", order_path(order, :order_status => 'paid'), method: :patch %></td>
+          <% elsif order.current_status == "paid" %>
+            <td><%= link_to "View Order", order_path(order) %> || <%= link_to "Mark as complete", order_path(order, :order_status => 'complete'), method: :patch %> || <%= link_to "Cancel", order_path(order, :order_status => 'canceled'), method: :patch %></td>
           <% else %>
             <td><%= link_to "View Order", order_path(order) %></td>
           <% end %>
