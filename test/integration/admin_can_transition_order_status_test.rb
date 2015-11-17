@@ -69,8 +69,6 @@ class AdminCanTransitionOrderStatusTest < ActionDispatch::IntegrationTest
 
     assert admin_dashboard_index_path, current_path
 
-    save_and_open_page
-
     within("#order_#{Order.last.id}") do
       assert page.has_content?('complete')
       assert page.has_link?('Cancel')
