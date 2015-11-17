@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.save
       redirect_to admin_dashboard_index_path
-      flash[:success] = "Logged in as #{@user.username}"
+      flash[:success] = "Item has been added to store"
     else
       flash.now[:error] = 'Please fill in required fields'
       render :new

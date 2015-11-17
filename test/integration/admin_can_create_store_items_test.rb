@@ -13,9 +13,10 @@ class AdminCanCreateStoreItemsTest < ActionDispatch::IntegrationTest
 
     fill_in 'Name', with: 'NewGear'
     fill_in 'Description', with: 'Put this thing on!'
+    fill_in 'Category', with: @category.id
     fill_in 'Price', with: '777'
-    fill_in 'Category', with: '1'
+    fill_in "Image file name", with: "cool.png"
     click_button 'Create Item'
-    assert page.has_content?('Welcome, Newname!')
+    assert page.has_content?('Item has been added to store')
   end
 end
