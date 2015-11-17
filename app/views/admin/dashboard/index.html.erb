@@ -8,7 +8,7 @@
     <tr>
       <th>Ordered</th>
       <th>Paid</th>
-      <th>Cancelled</th>
+      <th>Canceled</th>
       <th>Completed</th>
     </tr>
   </thead>
@@ -40,12 +40,16 @@
       </thead>
       <tbody>
         <% @orders.each do |order| %>
-        <tr>
+        <tr id="order_<%= order.id %>">
           <td class="center-align"><%= order.id %></td>
           <td><%= order.created_at.time.strftime("%b %-d, %Y %-l:%M %p") %></td>
           <td>$<%= order.total_price %></td>
           <td><%= order.current_status %></td>
-          <td><%= link_to "View Order", order_path(order) %></td>
+          <% if order.current_status == "paid" || order.current_status == "completed" %>
+            <td><%= link_to "View Order", order_path(order) %> || <%= link_to "Cancel", order_path(order), method: :patch, :order_status => 'canceled' %></td>
+          <% else %>
+            <td><%= link_to "View Order", order_path(order) %></td>
+          <% end %>
         </tr>
   <% end %>
       </tbody>

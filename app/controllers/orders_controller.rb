@@ -27,4 +27,9 @@ class OrdersController < ApplicationController
       redirect_to login_path
     end
   end
+
+  def update
+    Order.find(params[:id]).update_attributes(current_status: "canceled")
+    redirect_to admin_dashboard_index_path
+  end
 end
