@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @categories = Category.all
   end
 
   def new
@@ -14,7 +15,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to admin_dashboard_index_path
+      redirect_to items_path
       flash[:success] = "Item has been added to store"
     else
       flash.now[:error] = 'Please fill in required fields'
@@ -24,6 +25,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :brand, :price, :category_id)
+    params.require(:item).permit(:name, :description, :brand, :price, :category_id, :image)
   end
 end
