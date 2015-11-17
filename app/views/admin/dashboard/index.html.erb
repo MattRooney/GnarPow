@@ -2,6 +2,7 @@
 
 <h2>Welcome, <%= @user.username.capitalize %>!</h2><br>
 <%= link_to "Edit Account Info", edit_user_path(@user) %>
+<%= link_to "Add items to store", new_item_path %>
 <h3>Orders Status</h3>
 <table class="by-status">
   <thead>
