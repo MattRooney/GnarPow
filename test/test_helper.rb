@@ -158,7 +158,7 @@ module CategoryItemsSetup
     ApplicationController.any_instance.stubs(:current_user).returns(admin)
 
     create_categories_and_items
-    order   = Order.create(current_status: status)
+    order = Order.create(current_status: status)
     order_item = OrderItem.new(item_id: Item.last.id, order_id: order.id, quantity: 2)
     order.order_items << order_item
     order.save
