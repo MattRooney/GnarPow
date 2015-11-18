@@ -33,7 +33,7 @@ class AdminCanSeeOrdersTest < ActionDispatch::IntegrationTest
     click_button 'Login'
     within('.by-status') do
       assert page.has_content?('Ordered')
-      assert page.has_content?('Cancelled')
+      assert page.has_content?('Canceled')
       assert page.has_content?('Completed')
       assert page.has_content?('2')
     end
