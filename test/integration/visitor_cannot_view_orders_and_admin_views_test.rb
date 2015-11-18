@@ -19,7 +19,7 @@ class VisitorCannotViewOrdersAndAdminViewsTest < ActionDispatch::IntegrationTest
 
     visit '/orders'
 
-    assert page.has_content?('404')
+    assert_equal login_path, current_path
   end
 
   test 'an unauthenticated user cannot view a users cart' do

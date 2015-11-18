@@ -19,10 +19,7 @@ class Cart
   end
 
   def update_quantity(params)
-    contents.select { |item, _quantity| item == params[:id] }
-      .map do |item, _quantity|
-      contents[item] = params[:quantity].to_i
-    end
+    contents[(params[:id])] = params[:quantity].to_i
   end
 
   def remove_items(params)

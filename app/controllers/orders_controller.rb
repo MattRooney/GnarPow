@@ -1,4 +1,11 @@
 class OrdersController < ApplicationController
+  before_action :require_authenticated_user
+
+  def require_authenticated_user
+    flash[:error] = "You must be logged in to proceed."
+    redirect_to login_path unless current_user
+  end
+
   def index
     if current_user
       @orders = current_user.orders
@@ -16,15 +23,12 @@ class OrdersController < ApplicationController
     if session[:cart].nil? || session[:cart] == {}
       flash[:no_items] = "There's nothing in your cart."
       redirect_to items_path
-    elsif current_user && session[:cart]
+    else
       current_user.set_order(session[:cart])
       UserMailer.sample_email(current_user).deliver_now
       session.delete(:cart)
       flash[:success] = 'Order was successfully placed'
       redirect_to orders_path
-    else
-      flash[:login] = 'You must be logged in to check out'
-      redirect_to login_path
     end
   end
 
