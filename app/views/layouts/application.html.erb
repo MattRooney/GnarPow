@@ -10,7 +10,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<% if current_admin? %>
+  <%= render "partials/admin_nav" %>
+<% else %>
   <%= render "partials/nav" %>
+<% end %>
 
 <% if current_page?("/") %>
   <%= yield %>
