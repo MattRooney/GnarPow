@@ -81,7 +81,9 @@ module CategoryItemsSetup
   end
 
   def create_user
-    User.create(username: 'Matt', password: 'gnargnar')
+    User.create(username: 'Matt',
+                password: 'gnargnar',
+                email: 'matthewjrooney@gmail.com')
   end
 
   def login_a_user
@@ -148,5 +150,25 @@ module CategoryItemsSetup
       fill_in 'Password', with: "password#{id}"
       click_button 'Login'
     end
+  end
+
+  def admin_order_setup(status)
+    admin = User.create(username: 'admin',
+                        password: 'password',
+                        role:      1)
+
+    ApplicationController.any_instance.stubs(:current_user).returns(admin)
+
+    create_categories_and_items
+    order = Order.create(current_status: status)
+    order_item = OrderItem.new(item_id: Item.last.id, order_id: order.id, quantity: 2)
+    order.order_items << order_item
+    order.save
+
+    visit login_path
+
+    fill_in 'Username', with: 'admin'
+    fill_in 'Password', with: 'password'
+    click_button 'Login'
   end
 end

@@ -3,6 +3,11 @@ class UserMailer < ApplicationMailer
 
   def sample_email(user)
     @user = user
-    mail(to: 'matthewjrooney@gmail.com', subject: 'Sample Email')
+    @items = user.orders.last.items
+    mail(to: user.email, subject: "Order #{user.orders.last.id}")
+  end
+
+  def daily_deal_email(user)
+    mail(to: user.email, subject: 'GnarPow Daily Deal') if user.email
   end
 end

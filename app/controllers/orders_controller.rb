@@ -18,13 +18,18 @@ class OrdersController < ApplicationController
       redirect_to items_path
     elsif current_user && session[:cart]
       current_user.set_order(session[:cart])
+      UserMailer.sample_email(current_user).deliver_now
       session.delete(:cart)
-      # UserMailer.sample_email(current_user).deliver_now
       flash[:success] = 'Order was successfully placed'
       redirect_to orders_path
     else
       flash[:login] = 'You must be logged in to check out'
       redirect_to login_path
     end
+  end
+
+  def update
+    Order.find(params[:id]).update_attributes(current_status: params[:order_status])
+    redirect_to admin_dashboard_index_path
   end
 end
