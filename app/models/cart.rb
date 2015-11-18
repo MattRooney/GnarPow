@@ -29,23 +29,10 @@ class Cart
     contents.delete_if { |item_id, _quantity| item_id == params[:id] }
   end
 
-  def complete_cart
-    {
-      items: items,
-      total_price: total_price
-    }
-  end
-
-  def items
-    item_ids = contents.keys
-    Item.find(item_ids)
-  end
-
   def total_price
     contents.map do |item_id, quantity|
       Item.find(item_id.to_i).price * quantity
-    end
-      .sum
+    end.sum
   end
 
   def items
