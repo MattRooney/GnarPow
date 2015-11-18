@@ -8,8 +8,6 @@ class UserMailer < ApplicationMailer
   end
 
   def daily_deal_email(user)
-    if user.email
-      mail(to: user.email, subject: "GnarPow Daily Deal")
-    end
+    mail(to: user.email, subject: 'GnarPow Daily Deal') if user.email
   end
 end

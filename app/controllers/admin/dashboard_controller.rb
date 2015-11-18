@@ -12,7 +12,7 @@ class Admin::DashboardController < Admin::BaseController
     User.find_each do |user|
       UserMailer.daily_deal_email(user).deliver_now
     end
-    flash[:success] = "Daily Deal email sent!"
+    flash[:success] = 'Daily Deal email sent!'
     render :index
   end
 end

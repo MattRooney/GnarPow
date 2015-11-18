@@ -37,9 +37,9 @@ class AdminDashboardTest < ActionDispatch::IntegrationTest
   end
 
   test 'admin can send an email to all users with daily deal' do
-    User.create(username: "MattR", password: "password", email: "matt@email.com")
-    User.create(username: "Edgar", password: "password", email: "edgar@email.com")
-    User.create(username: "MattS", password: "password", email: "stj@email.com")
+    User.create(username: 'MattR', password: 'password', email: 'matt@email.com')
+    User.create(username: 'Edgar', password: 'password', email: 'edgar@email.com')
+    User.create(username: 'MattS', password: 'password', email: 'stj@email.com')
     create_items_associated_with_orders
 
     admin = User.create(username: 'admin',
@@ -56,8 +56,8 @@ class AdminDashboardTest < ActionDispatch::IntegrationTest
 
     assert page.has_content?('Welcome, Admin!')
 
-    click_link "Send Daily Deal Email to All Registered Users"
+    click_link 'Send Daily Deal Email to All Registered Users'
 
-    assert_equal current_path, "/admin/dashboard"
+    assert_equal current_path, '/admin/dashboard'
   end
 end
