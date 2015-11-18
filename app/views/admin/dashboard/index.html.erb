@@ -1,17 +1,20 @@
 <h1>Admin Dashboard</h1>
 
 <h2>Welcome, <%= current_user.username.capitalize %>!</h2><br>
-<%= link_to "Edit Account Info", edit_user_path(current_user) %>
+<br>
+<%= link_to "Edit Account", edit_user_path(current_user), class:"right"%>
+<h4 class="grey-text">Welcome, <%= current_user.username.capitalize %>!</h4>
+<br>
 <div class="center">
   <%= link_to "Send Daily Deal Email to All Registered Users", "/admin/dashboard", method: :post, class: "btn"  %>
 </div>
-<h3>Orders Status</h3>
-<table class="by-status">
+<h3>Overview</h3>
+<table class="by-status centered">
   <thead>
     <tr>
       <th>Ordered</th>
       <th>Paid</th>
-      <th>Cancelled</th>
+      <th>Canceled</th>
       <th>Completed</th>
     </tr>
   </thead>
@@ -23,15 +26,17 @@
       <td><%= Order.completed.count %></td>
     </tr>
     <tr>
-      <td><%= link_to "View Ordered", admin_dashboard_path('ordered'), :order_status => 'ordered' %></td>
-      <td><%= link_to "View Paid", admin_dashboard_path('paid'), :order_status => 'paid' %></td>
-      <td><%= link_to "View Canceled", admin_dashboard_path('canceled') %></td>
-      <td><%= link_to "View Completed", admin_dashboard_path('completed') %></td>
+      <td><%= link_to "View Ordered", admin_dashboard_path('ordered'), :order_status => 'ordered', class: "btn orange" %></td>
+      <td><%= link_to "View Paid", admin_dashboard_path('paid'), :order_status => 'paid', class: "btn light-blue lighten-1" %></td>
+      <td><%= link_to "View Canceled", admin_dashboard_path('canceled'), class: "btn canceled red lighten-1" %></td>
+      <td><%= link_to "View Completed", admin_dashboard_path('completed'), class: "btn green lighten-1" %></td>
     </tr>
   </tbody>
 </table>
+<br>
+<br>
 <h3>All Orders</h3>
-<table class="all-orders">
+<table class="all-orders centered">
       <thead>
         <tr>
             <th class="center-align">Order</th>
@@ -45,12 +50,20 @@
         <% if @orders.nil? || @orders == [] %>
           <p>You have no orders</p>
         <% else @orders.each do |order| %>
-        <tr>
+        <tr id="order_<%= order.id %>">
           <td class="center-align"><%= order.id %></td>
           <td><%= order.created_at.time.strftime("%b %-d, %Y %-l:%M %p") %></td>
           <td>$<%= order.total_price %></td>
-          <td><%= order.current_status %></td>
-          <td><%= link_to "View Order", order_path(order) %></td>
+          <td><div class="chip <%= order.current_status %>"><%= order.current_status %></div></td>
+          <% if order.current_status == "completed" %>
+            <td><%= link_to "View Order", order_path(order) %> || <%= link_to "Cancel", order_path(order, :order_status => 'canceled'), method: :patch, class: "cancel-link" %></td>
+          <% elsif order.current_status == "ordered" %>
+            <td><%= link_to "View Order", order_path(order) %> || <%= link_to "Mark as paid", order_path(order, :order_status => 'paid'), method: :patch %></td>
+          <% elsif order.current_status == "paid" %>
+            <td><%= link_to "View Order", order_path(order) %> || <%= link_to "Mark as complete", order_path(order, :order_status => 'completed'), method: :patch, class: "complete-link" %> || <%= link_to "Cancel", order_path(order, :order_status => 'canceled'), method: :patch, class: "cancel-link" %></td>
+          <% else %>
+            <td><%= link_to "View Order", order_path(order) %></td>
+          <% end %>
         </tr>
           <% end %>
         <% end %>

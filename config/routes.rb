@@ -13,6 +13,5 @@ Rails.application.routes.draw do
     resources :dashboard, only: [:show, :index]
   end
   post '/admin/dashboard', to: 'admin/dashboard#daily_deal'
-
-  resources :orders, only: [:index, :show, :create]
+  resources :orders, only: [:index, :show, :create, :update]
 end
