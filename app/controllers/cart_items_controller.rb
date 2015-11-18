@@ -11,8 +11,9 @@ class CartItemsController < ApplicationController
   end
 
   def update
-    if params[:quantity].to_i <= 0
-      destroy
+    if params[:quantity].to_i < 1
+      flash[:error] = "Please remove the item from you cart if you'd like less than 1 item"
+      redirect_to cart_path
     else
       @cart.update_quantity(params)
       redirect_to cart_path
