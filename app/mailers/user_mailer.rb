@@ -6,4 +6,10 @@ class UserMailer < ApplicationMailer
     @items = user.orders.last.items
     mail(to: user.email, subject: "Order #{user.orders.last.id}")
   end
+
+  def daily_deal_email(user)
+    if user.email
+      mail(to: user.email, subject: "GnarPow Daily Deal")
+    end
+  end
 end

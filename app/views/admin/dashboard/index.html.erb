@@ -1,7 +1,10 @@
 <h1>Admin Dashboard</h1>
 
-<h2>Welcome, <%= @user.username.capitalize %>!</h2><br>
-<%= link_to "Edit Account Info", edit_user_path(@user) %>
+<h2>Welcome, <%= current_user.username.capitalize %>!</h2><br>
+<%= link_to "Edit Account Info", edit_user_path(current_user) %>
+<div class="center">
+  <%= link_to "Send Daily Deal Email to All Registered Users", "/admin/dashboard", method: :post, class: "btn"  %>
+</div>
 <h3>Orders Status</h3>
 <table class="by-status">
   <thead>
@@ -39,7 +42,9 @@
         </tr>
       </thead>
       <tbody>
-        <% @orders.each do |order| %>
+        <% if @orders.nil? || @orders == [] %>
+          <p>You have no orders</p>
+        <% else @orders.each do |order| %>
         <tr>
           <td class="center-align"><%= order.id %></td>
           <td><%= order.created_at.time.strftime("%b %-d, %Y %-l:%M %p") %></td>
@@ -47,6 +52,7 @@
           <td><%= order.current_status %></td>
           <td><%= link_to "View Order", order_path(order) %></td>
         </tr>
-  <% end %>
+          <% end %>
+        <% end %>
       </tbody>
     </table>
