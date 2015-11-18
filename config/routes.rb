@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :items, only: [:index, :show, :new, :create, :destroy]
     resources :dashboard, only: [:show, :index]
+    resources :categories, only: [:show, :index], param: :slug
   end
   resources :orders, only: [:index, :show, :create]
 end

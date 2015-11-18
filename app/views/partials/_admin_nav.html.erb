@@ -11,16 +11,15 @@
           <% end %>
         </li>
         <ul id="dropdown1" class="dropdown-content">
-          <li><a href="/categories/snowboards">Snowboards</a></li>
-          <li><a href="/categories/apparel">Apparel</a></li>
-          <li><a href="/categories/boots">Boots</a></li>
-          <li><a href="/categories/bindings">Bindings</a></li>
+          <li><a href="categories/snowboards">Snowboards</a></li>
+          <li><a href="categories/apparel">Apparel</a></li>
+          <li><a href="categories/boots">Boots</a></li>
+          <li><a href="categories/bindings">Bindings</a></li>
           <li class="divider"></li>
           <li><a href="/admin/items">All Items</a></li>
         </ul>
         <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Admin Categories<i class="material-icons right">arrow_drop_down</i></a></li>
-        <li><a id="go-to-cart" href="/cart"><span class="material-icons cart-icon">shopping_cart</span>
-        <span class="badge cart-count"><%= @cart.total %></span></a></li>
+        <li><a id="go-to-cart" href="/admin/dashboard"><span class="material-icons cart-icon">shopping_cart</span>
       </ul>
     </div>
   </nav>
