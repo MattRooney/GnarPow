@@ -3,41 +3,67 @@
     });
 </script>
 <div class="slider">
-    <ul class="slides">
-      <li>
-        <%= image_tag "home1.jpeg" %>
-        <div class="caption center-align">
-          <h3 class="black-text">Welcome to GnarPow!</h3>
-          <h5 class="light black-text">Home of the gnarliest gear.</h5>
-          <%= link_to "SHOP", items_path, class:"btn large" %>
-        </div>
-      </li>
-      <li>
-        <%= image_tag "home2.jpeg" %>
-        <div class="caption left-align">
-          <h3></h3>
-          <h5 class="light black-text">You don't wanna get stuck <br> up here without boots...</h5>
-          <%= link_to "SHOP BOOTS", "/categories/boots", class:"btn large" %>
-        </div>
-      </li>
-      <li>
-        <%= image_tag "home3.jpeg" %>
-        <div class="caption right-align black-text">
-          <h3>Checkout this month's FEATURED BOARD</h3>
-          <h5 class="light black-text">Every quiver needs a gnar possum.</h5>
-          <%= link_to "SHOP GNAR POSSUM", "/items/4", class:"btn large" %>
-        </div>
-      </li>
-      <li>
-        <%= image_tag "home4.jpeg" %>
-        <div class="caption center-align black-text">
-          <h3>GnarPow!</h3>
-          <h5 class="light black-text">Login and get shreddin!</h5>
-          <%= link_to "LOGIN", login_path, class:"btn large" %>
-        </div>
-      </li>
-    </ul>
+  <ul class="slides">
+    <li>
+      <%= image_tag "home1.jpeg" %>
+      <div class="caption center-align">
+        <h3 class="black-text">Welcome to GnarPow!</h3>
+        <h5 class="light black-text">Home of the gnarliest gear.</h5>
+        <%= link_to "SHOP", items_path, class:"btn large" %>
+      </div>
+    </li>
+    <li>
+      <%= image_tag "home2.jpeg" %>
+      <div class="caption left-align">
+        <h3></h3>
+        <h5 class="light black-text">You don't wanna get stuck <br> up here without boots...</h5>
+        <%= link_to "SHOP BOOTS", "/categories/boots", class:"btn large" %>
+      </div>
+    </li>
+    <li>
+      <%= image_tag "home3.jpeg" %>
+      <div class="caption right-align black-text">
+        <h3>It's cold out there...</h3>
+        <h5 class="light black-text">Get some sleeves!</h5>
+        <%= link_to "SHOP APPAREL", "/categories/apparel", class:"btn large" %>
+      </div>
+    </li>
+    <li>
+      <%= image_tag "home4.jpeg" %>
+      <div class="caption center-align black-text">
+        <h3>GnarPow!</h3>
+        <h5 class="light black-text">Login and get shreddin!</h5>
+        <%= link_to "LOGIN", login_path, class:"btn large" %>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="container">
+  <h1>Today's Gnarliest Item!</h1>
+
+  <div class="row center">
+    <div class="col s6">
+      <div class="row">
+         <div class="col m12 m7">
+           <div class="card">
+             <div class="card-image aligh-center">
+               <%= image_tag @featured_item.image.url %>
+               <span class="card-title black"><%= @featured_item.name.upcase %></span>
+             </div>
+             <div class="card-content">
+               <p>Price: $<%= @featured_item.price %></p>
+             </div>
+           </div>
+         </div>
+       </div>
+    </div>
+    <div class="col offset-s2 s3 center-align">
+      <div class="center-align">
+      <h3 class="grey-text center-align">Details</h3>
+      <h4>Brand: <%= @featured_item.brand %></h4>
+      <h6><%= @featured_item.description.capitalize %></h6>
+      <%= link_to "Add To Cart", cart_items_path(item_id: @featured_item.id), method: :post, class: "btn center-align" %>
+      </div>
+    </div>
   </div>
-  <div class="row">
-    <%= render "partial/item" %>
-  </div>
+</div>

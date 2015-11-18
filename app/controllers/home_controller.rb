@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def home
-    @daily_deal_item
+    @featured_item = Item.find(4)
   end
 end
