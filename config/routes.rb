@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get '/', to: 'home#home'
-  get '/deal', to: 'home#deal'
   get '/cart', to: 'cart#show'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -8,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :cart_items, only: [:create, :destroy, :update]
   resources :items, only: [:index, :show]
+  get '/deal', to: 'items#deal'
   resources :categories, only: [:show, :index], param: :slug
   resources :users, only: [:new, :create, :show, :edit, :update]
   namespace :admin do
