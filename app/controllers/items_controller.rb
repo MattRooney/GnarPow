@@ -23,6 +23,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    flash[:deleted] = "You have removed the item from the store."
+    redirect_to items_path
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :description, :brand, :price, :category_id, :image)
