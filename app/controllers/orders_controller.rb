@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order_data = Order.find(params[:id]).orders_hash
+    @order = Order.find(params[:id])
   end
 
   def create

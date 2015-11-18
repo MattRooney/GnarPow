@@ -1,6 +1,6 @@
-<h5>Order Number: <%= @order_data[:order_object].id %></h5>
-<h6>Order Status: <%= @order_data[:order_object].current_status %></h6>
-<h6>Submitted on: <%= @order_data[:order_object].created_at.time.strftime("%b %-d, %Y %-l:%M %p") %></h6>
+<h5>Order Number: <%= @order.id %></h5>
+<h6>Order Status: <%= @order.current_status %></h6>
+<h6>Submitted on: <%= @order.created_at.time.strftime("%b %-d, %Y %-l:%M %p") %></h6>
 
 
 <table class="orders-table">
@@ -12,7 +12,7 @@
       <th>Subtotal</th>
     </tr>
   </thead>
-  <% @order_data[:order_object].order_items.each do |order_item| %>
+  <% @order.order_items.each do |order_item| %>
   <tbody>
     <tr>
       <td><%= link_to order_item.item.name.capitalize, item_path(order_item.item.id) %></td>
@@ -25,7 +25,7 @@
       <td class="left"><strong>Total:</strong></td>
       <td></td>
       <td></td>
-      <td class="left"> $<strong><%= @order_data[:total_price] %></strong></td>
+      <td class="left"> $<strong><%= @order.total_price %></strong></td>
     </tr>
   </tbody>
 </table>
