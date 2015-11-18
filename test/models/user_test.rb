@@ -18,4 +18,11 @@ class UserTest < ActiveSupport::TestCase
 
     refute user.valid?
   end
+
+  test 'a user has an email' do
+    user = User.new(username: 'Matt', password: 'password', email: 'test@email.com')
+
+    assert user.valid?
+    assert_equal 'test@email.com', user.email
+  end
 end

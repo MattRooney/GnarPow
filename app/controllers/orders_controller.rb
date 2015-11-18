@@ -18,8 +18,8 @@ class OrdersController < ApplicationController
       redirect_to items_path
     elsif current_user && session[:cart]
       current_user.set_order(session[:cart])
+      UserMailer.sample_email(current_user).deliver_now
       session.delete(:cart)
-      # UserMailer.sample_email(current_user).deliver_now
       flash[:success] = 'Order was successfully placed'
       redirect_to orders_path
     else
