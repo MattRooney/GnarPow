@@ -10,7 +10,8 @@ class AnExistingUserCanCheckOutToPlaceAnOrderTest < ActionDispatch::IntegrationT
     click_link 'Check Out'
 
     assert_equal login_path, current_path
-    assert page.has_content?('You must be logged in to check out')
+
+    assert page.has_content?('You must be logged in to proceed.')
   end
 
   test "an_existing_user_can_check_out_to_place_an_order and cart returns

@@ -1,4 +1,11 @@
 class OrdersController < ApplicationController
+  before_action :require_authenticated_user
+
+  def require_authenticated_user
+    flash[:error] = "You must be logged in to proceed."
+    redirect_to login_path unless current_user
+  end
+
   def index
     if current_user
       @orders = current_user.orders
