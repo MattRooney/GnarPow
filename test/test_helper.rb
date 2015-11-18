@@ -174,10 +174,10 @@ module CategoryItemsSetup
 
   def create_featured_item
     @featured_item = Item.create({ name: 'gnar possum',
-                          description: 'a snowboard for shredding gnar',
-                          price: 1000,
-                          brand: 'Jibberish',
-                          image: File.open('app/assets/images/gnar_possum.jpg')
+                                   description: 'a snowboard for shredding gnar',
+                                   price: 1000,
+                                   brand: 'Jibberish',
+                                   image: File.open('app/assets/images/gnar_possum.jpg')
                           })
   end
 end
