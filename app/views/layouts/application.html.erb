@@ -9,27 +9,26 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
- <div class="page-flexbox-wrapper">
+<body class="Site">
   <% if current_admin? %>
     <%= render "partials/admin_nav" %>
   <% else %>
     <%= render "partials/nav" %>
   <% end %>
-
-  <% if current_page?("/") %>
+  <main>
+    <% if current_page?("/") %>
+      <%= yield %>
+    <% else %>
+    <div class="container push-right">
+        <% flash.each do |type, msg| %>
+          <%= content_tag :div, sanitize(msg), class: "flash_#{type}" %>
+            <body onload="Materialize.toast('<%=msg%>', 1500)">
+        <% end %>
     <%= yield %>
-  <% else %>
-  <div class="container push-right">
-      <% flash.each do |type, msg| %>
-        <%= content_tag :div, sanitize(msg), class: "flash_#{type}" %>
-          <body onload="Materialize.toast('<%=msg%>', 1500)">
-      <% end %>
-  <%= yield %>
-</div>
-<% end %>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>
+  </div>
+  <% end %>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js"></script>
+ </main>
  <%= render "partials/footer" %>
- </div>
 </body>
 </html>
