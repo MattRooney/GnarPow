@@ -1,11 +1,14 @@
-<h3>Create a new account</h3>
+<div class="center-box">
+  <h3>Create a new account</h3>
+  <br>
 
-<%= form_for(User.new) do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <%= f.submit "Create Account", class: "btn" %>
-<% end %>
+  <%= form_for(User.new) do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <%= f.submit "Create Account", class: "btn" %>
+  <% end %>
+</div>
