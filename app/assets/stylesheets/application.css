@@ -138,6 +138,34 @@ span.badge.cart-count:after {
 .nudge-right {
   margin-left: 1rem;
 }
+
+.restyle-nav {
+  background-color: rgba(2, 119, 189, 0);
+  margin-top: 15rem;
+  margin-bottom: 20rem !important;
+  box-shadow: none !important;
+  line-height: 10px !important;
+}
+
+.restyle-nav a {
+  font-size: 0.8rem;
+  height: 30px !important;
+  display: inline-block !important;
+}
+
+.not-active {
+   pointer-events: none !important;
+   cursor: default !important;
+}
+
+.side-nav li:hover {
+  background-color: rgba(2, 119, 189, 0) !important;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
 body {
   display: flex;
   min-height: 100vh;
