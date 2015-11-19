@@ -81,17 +81,6 @@ snowboards = Category.find_by(title: 'Snowboards')
                         brand: 'Never Summer',
                         image: File.open('app/assets/images/gnar_possum.jpg')
                       },
-                      { name: 'MACHETE GT',
-                        description: 'The mountain is your playground on this surfy performance wide twin snowboard built for hitting features and
-                                     locking in landings. All mountain freestyle snowboarders will benefit from the versatile Hybrid LowRize shape
-                                     designed with the playful LowRize rocker in the tip and tail, and the responsive level micro-camber zone under
-                                     foot. Featuring the latest in sidewall technology, Popwalls combine layers of carbon and Slimewalls material to
-                                     maximize response, grip and stability, making this twin snowboard ideal for going big while maintaining an all
-                                     around playful feel. ',
-                        price: 455,
-                        brand: 'Ride',
-                        image: File.open('app/assets/images/machete_gt.png')
-                      },
                       { name: 'WILD LIFE WIDE',
                         description: 'Joining forces with Ride engineers, team rider Marco Feichtner had a hand in refining this dialed ride. Delivering
                                       versatility for everything the mountain has to offer, the Wild Life wide snowboard features Ride’s All Mountain Rocker
