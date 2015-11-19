@@ -16,7 +16,7 @@ class AdminCanCreateStoreItemsTest < ActionDispatch::IntegrationTest
     fill_in 'Category', with: @category.id
     fill_in 'Price', with: '777'
     click_button 'Create Item'
-    assert page.has_content?('Item has been added to store')
+    assert page.has_content?('Item NewGear has been added to store')
     assert page.has_content?('NEWGEAR')
     assert page.has_content?('777')
   end
