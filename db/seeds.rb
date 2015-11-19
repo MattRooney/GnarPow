@@ -41,19 +41,19 @@ apparel = Category.find_by(title: 'Apparel')
                      brand: 'Ride',
                      image: File.open('app/assets/images/holman_bib.png')
                    },
-                   { name: 'GOOD VIBES FULL ZIP HOODIE',
+                   { name: 'GOOD VIBES ZIP HOODIE',
                      description: 'Features: 80% cotton, 20% polyester Colors: Heather Gray, Olive Sizes: S, M, L, XL',
                      price: 60,
                      brand: 'K2',
                      image: File.open('app/assets/images/good_vibes_hoody.png')
                    },
-                   { name: 'Burton [ak] Leather Tech Glove',
+                   { name: '[ak] Leather Tech Glove',
                      description: 'Low-profile warmth meets the bomber strength of genuine leather. A team-favorite for sledding, splitboarding, and hiking.',
                      price: 40,
                      brand: 'Burton',
                      image: File.open('app/assets/images/ak_gloves.jpg')
                    },
-                   { name: 'BURTON x NEIGHBORHOOD B-10 Jacket',
+                   { name: 'NEIGHBORHOOD B-10 Jacket',
                      description: 'Outlast 70% Cotton, 30% Nylon',
                      price: 240,
                      brand: 'NEFF',
@@ -81,7 +81,7 @@ snowboards = Category.find_by(title: 'Snowboards')
                         brand: 'Never Summer',
                         image: File.open('app/assets/images/gnar_possum.jpg')
                       },
-                      { name: 'MACHETE GT WIDE SNOWBOARD',
+                      { name: 'MACHETE GT SNOWBOARD',
                         description: 'The mountain is your playground on this surfy performance wide twin snowboard built for hitting features and
                                      locking in landings. All mountain freestyle snowboarders will benefit from the versatile Hybrid LowRize shape
                                      designed with the playful LowRize rocker in the tip and tail, and the responsive level micro-camber zone under
@@ -130,7 +130,7 @@ snowboards = Category.find_by(title: 'Snowboards')
                         brand: 'Burton',
                         image: File.open('app/assets/images/burton_process.jpg')
                       },
-                      { name: 'BURTON x NEIGHBORHOOD Throwback Snowboard',
+                      { name: 'NEIGHBORHOOD Throwback',
                         description: 'A resurrection of the 1981 Burton Backhill, this ride-able piece of history is built for surfing snow in your own backyard.
                                       While this snowboard is gripped and ready to rip, it is not recommended for riding at resorts or on hardpack or icy conditions.
                                       Please consult your resort before riding The Throwback on their trails.',
