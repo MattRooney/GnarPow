@@ -15,8 +15,3 @@ class GuestCreatesAccountTest < ActionDispatch::IntegrationTest
     assert page.has_content?('Logged in as Matt')
   end
 end
-# assert_equal current_path, user_path()
-#
-# within(".navbar-fixed")
-# refute page.has_content?("Login")
-# assert page.has_content?("Logout")

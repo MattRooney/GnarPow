@@ -4,5 +4,9 @@
 
 
 <div class="row">
-  <%= render @items %>
+  <% if @items %>
+    <%= render @items %>
+  <% else %>
+    You ain't got shit.
+  <% end %>
 </div>
