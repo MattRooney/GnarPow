@@ -14,27 +14,27 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-11-18T19:29:26-07:00">2015-11-18T19:29:26-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-11-18T22:29:38-07:00">2015-11-18T22:29:38-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">98.35%</span></span>
+    (<span class="covered_percent"><span class="green">98.26%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         3.67
+         3.68
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>67</b> files in total.
-    <b>1030</b> relevant lines. 
-    <span class="green"><b>1013</b> lines covered</span> and
-    <span class="red"><b>17</b> lines missed </span>
+    <b>1032</b> relevant lines. 
+    <span class="green"><b>1014</b> lines covered</span> and
+    <span class="red"><b>18</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -87,7 +87,7 @@
         <td>10</td>
         <td>10</td>
         <td>0</td>
-        <td>130.9</td>
+        <td>132.7</td>
       </tr>
       
       <tr>
@@ -113,7 +113,7 @@
       <tr>
         <td class="strong"><a href="#32f39c3aef0f84661af4c1277cf967365b19c0dd" class="src_link" title="app/controllers/categories_controller.rb">app/controllers/categories_controller.rb</a></td>
         <td class="red strong">80.0 %</td>
-        <td>11</td>
+        <td>9</td>
         <td>5</td>
         <td>4</td>
         <td>1</td>
@@ -133,7 +133,7 @@
       <tr>
         <td class="strong"><a href="#38ce4e4f1675ec0bb408a6b90ae468d5375c6224" class="src_link" title="app/controllers/items_controller.rb">app/controllers/items_controller.rb</a></td>
         <td class="green strong">90.91 %</td>
-        <td>21</td>
+        <td>20</td>
         <td>11</td>
         <td>10</td>
         <td>1</td>
@@ -252,12 +252,12 @@
       
       <tr>
         <td class="strong"><a href="#c9bf48351543274ad29d30c3ffccfa4ab0c7aea5" class="src_link" title="app/models/item.rb">app/models/item.rb</a></td>
-        <td class="green strong">100.0 %</td>
+        <td class="yellow strong">90.0 %</td>
+        <td>15</td>
         <td>10</td>
-        <td>8</td>
-        <td>8</td>
-        <td>0</td>
-        <td>1.0</td>
+        <td>9</td>
+        <td>1</td>
+        <td>0.9</td>
       </tr>
       
       <tr>
@@ -1212,8 +1212,8 @@
           <code class="ruby">  def current_user</code>
         </li>
       
-        <li class="covered" data-hits="750" data-linenumber="11">
-          <span class="hits">750</span>
+        <li class="covered" data-hits="759" data-linenumber="11">
+          <span class="hits">759</span>
           
           <code class="ruby">    @user ||= User.find(session[:user_id]) if session[:user_id]</code>
         </li>
@@ -1260,8 +1260,8 @@
           <code class="ruby">  def current_admin?</code>
         </li>
       
-        <li class="covered" data-hits="299" data-linenumber="19">
-          <span class="hits">299</span>
+        <li class="covered" data-hits="308" data-linenumber="19">
+          <span class="hits">308</span>
           
           <code class="ruby">    current_user &amp;&amp; current_user.admin?</code>
         </li>
@@ -1548,55 +1548,43 @@
           <code class="ruby">  def show</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="3">
-          
-          
-          <code class="ruby">    # need to remember to downcase the title&#39;s somewhere - not sure if</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="4">
-          
-          
-          <code class="ruby">    # they should be stored in db downcased?</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="5">
+        <li class="covered" data-hits="2" data-linenumber="3">
           <span class="hits">2</span>
           
           <code class="ruby">    @category = Category.find_by_slug(params[:slug])</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="6">
+        <li class="never" data-hits="" data-linenumber="4">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="never" data-hits="" data-linenumber="5">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="8">
+        <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
           <code class="ruby">  def index</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="9">
+        <li class="missed" data-hits="0" data-linenumber="7">
           
           
           <code class="ruby">    @categories = Category.all</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="10">
+        <li class="never" data-hits="" data-linenumber="8">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="11">
+        <li class="never" data-hits="" data-linenumber="9">
           
           
           <code class="ruby">end</code>
@@ -1758,43 +1746,37 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="15">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="16">
+        <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
           <code class="ruby">  private</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
+        <li class="never" data-hits="" data-linenumber="16">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="18">
+        <li class="covered" data-hits="1" data-linenumber="17">
           <span class="hits">1</span>
           
           <code class="ruby">  def item_params</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="19">
+        <li class="missed" data-hits="0" data-linenumber="18">
           
           
           <code class="ruby">    params.require(:item).permit(:name, :description, :brand, :price, :category_id, :image)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="20">
+        <li class="never" data-hits="" data-linenumber="19">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="never" data-hits="" data-linenumber="20">
           
           
           <code class="ruby">end</code>
@@ -3295,11 +3277,11 @@
         <div class="source_table" id="c9bf48351543274ad29d30c3ffccfa4ab0c7aea5">
   <div class="header">
     <h3>app/models/item.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
+    <h4><span class="yellow">90.0 %</span> covered</h4>
     <div>
-      <b>8</b> relevant lines. 
-      <span class="green"><b>8</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <b>10</b> relevant lines. 
+      <span class="green"><b>9</b> lines covered</span> and
+      <span class="red"><b>1</b> lines missed.</span>
     </div>
   </div>
   
@@ -3361,6 +3343,36 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def sale_price</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="12">
+          
+          
+          <code class="ruby">    self.price * 0.75</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
           
           
           <code class="ruby">end</code>
@@ -10719,7 +10731,7 @@
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">    assert page.has_content?(&quot;Today&#39;s Gnarliest Item!&quot;)</code>
+          <code class="ruby">    assert page.has_content?(&quot;Today&#39;s Gnarliest Deal!&quot;)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="11">

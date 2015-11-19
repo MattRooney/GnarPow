@@ -62,7 +62,7 @@
                <span class="card-title black"><%= @featured_item.name.upcase %></span>
              </div>
              <div class="card-content">
-               <p>Price: $<%= @featured_item.price %></p>
+               <h5>Price: $<%= @featured_item.price %></h5>
              </div>
            </div>
          </div>
@@ -76,7 +76,9 @@
       <% if current_admin? %>
       <%= link_to "Notify Users", admin_dashboard_index_path, class: "btn center-align orange" %>
       <% else %>
-        <%= link_to "Add To Cart", cart_items_path(item_id: @featured_item.id), method: :post, class: "btn center-align" %>
+        <%= link_to "View Daily Deal", '/deal', class: "btn" %>
+        <br>
+        <%= link_to "Add To Cart", cart_items_path(item_id: @featured_item.id), method: :post %>
       <% end %>
       </div>
     </div>

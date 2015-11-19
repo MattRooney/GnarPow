@@ -21,7 +21,7 @@
     <% else %>
     <div class="container push-right">
         <% flash.each do |type, msg| %>
-          <%= content_tag :div, sanitize(msg), class: "flash_#{type}" %>
+          <%= content_tag :div, sanitize(msg), class: "flash_#{type} hidden" %>
             <body onload="Materialize.toast('<%=msg%>', 1500)">
         <% end %>
     <%= yield %>
