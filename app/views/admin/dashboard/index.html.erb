@@ -2,12 +2,12 @@
 
 <h4 class="grey-text">Welcome, <%= current_user.username.capitalize %>!</h4>
 <br>
-<%= link_to "Edit Account", edit_user_path(current_user), class:"right"%>
-<%= link_to "Add items to store", new_admin_item_path %>
-
-<br>
 <div class="center">
-  <%= link_to "Send Daily Deal Email to All Registered Users", "/admin/dashboard", method: :post, class: "btn"  %>
+<%= link_to "Edit Account", edit_user_path(current_user), class:"btn lime nudge-left"%>
+<%= link_to "Add items to store", new_admin_item_path, class: "btn blue-grey darken-1 nudge-right" %>
+<br>
+<br>
+<%= link_to "Send Daily Deal Email to All Registered Users", "/admin/dashboard", method: :post, class: "btn"  %>
 </div>
 <h3>Overview</h3>
 <table class="by-status centered">

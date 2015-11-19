@@ -122,6 +122,18 @@ span.badge.cart-count:after {
   margin-bottom: 8rem;
 }
 
+.strike {
+  text-decoration: line-through;
+  color: red !important;
+}
+
+.nudge-left {
+  margin-right: 1rem;
+}
+
+.nudge-right {
+  margin-left: 1rem;
+}
 body {
   display: flex;
   min-height: 100vh;
