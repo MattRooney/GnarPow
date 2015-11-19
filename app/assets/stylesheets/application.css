@@ -166,6 +166,18 @@ span.badge.cart-count:after {
   text-decoration: underline;
 }
 
+.medium {
+  height: 355px !important;
+}
+
+.card .card-image img {
+  margin-top: 2rem;
+}
+
+.carg-image {
+  height: 100px !important;
+}
+
 body {
   display: flex;
   min-height: 100vh;
