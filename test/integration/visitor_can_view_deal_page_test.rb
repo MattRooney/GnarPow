@@ -7,7 +7,7 @@ class VisitorCanViewDealPageTest < ActionDispatch::IntegrationTest
     create_featured_item
     visit '/deal'
 
-    assert page.has_content?("Today's Gnarliest Item!")
+    assert page.has_content?("Today's Gnarliest Deal!")
     assert page.has_content?("gnar possum")
     assert page.has_content?("$1000")
 
