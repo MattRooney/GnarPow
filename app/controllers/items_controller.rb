@@ -8,6 +8,11 @@ class ItemsController < ApplicationController
     @categories = Category.all
   end
 
+  def deal
+    @featured_item = Item.find_by(name: "gnar possum")
+  end
+
+
   private
 
   def item_params

@@ -1,0 +1,32 @@
+<h1>Today's Gnarliest Item!</h1>
+
+<h2><%= @featured_item.name %></h2>
+
+<div class="row center">
+      <div class="col s6">
+        <div class="row">
+           <div class="col m12 m7">
+             <div class="card">
+               <div class="card-image aligh-center">
+                 <%= image_tag @featured_item.image.url %>
+                 <span class="card-title black"><%= @featured_item.name.upcase %></span>
+               </div>
+               <div class="card-content">
+                 <p>Price: $<%= @featured_item.price %></p>
+               </div>
+             </div>
+           </div>
+         </div>
+
+      </div>
+
+      <div class="col offset-s2 s3 center-align">
+        <div class="center-align">
+        <h3 class="grey-text center-align">Details</h3>
+        <h4>Brand: <%= @featured_item.brand %></h4>
+        <h6><%= @featured_item.description.capitalize %></h6>
+        <%= link_to "Add To Cart", cart_items_path(item_id: @featured_item.id), method: :post, class: "btn center-align" %>
+
+        </div>
+      </div>
+    </div>
