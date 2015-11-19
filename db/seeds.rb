@@ -42,7 +42,7 @@ apparel = Category.find_by(title: 'Apparel')
                      image: File.open('app/assets/images/holman_bib.png')
                    },
                    { name: 'GOOD VIBES FULL ZIP HOODIE',
-                     description: "Features: 80% cotton, 20% polyester Colors: Heather Gray, Olive Sizes: S, M, L, XL",
+                     description: 'Features: 80% cotton, 20% polyester Colors: Heather Gray, Olive Sizes: S, M, L, XL',
                      price: 60,
                      brand: 'K2',
                      image: File.open('app/assets/images/good_vibes_hoody.png')
