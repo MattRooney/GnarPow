@@ -8,7 +8,7 @@ class VisitorCanViewDealPageTest < ActionDispatch::IntegrationTest
     visit '/deal'
 
     assert page.has_content?("Today's Gnarliest Item!")
-    assert page.has_content?('gnar possum')
+    assert page.has_content?('Gnar possum')
     assert page.has_content?('$1000')
 
     click_link('Add To Cart')
