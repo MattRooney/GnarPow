@@ -17,8 +17,4 @@ class AdminCanModifyOnlyTheirAccountDataTest < ActionDispatch::IntegrationTest
     click_button 'Save Changes'
     assert page.has_content?('Welcome, Newname!')
   end
-
-  test 'admin cannot modify other users account data' do
-    # let's put some working code here
-  end
 end
