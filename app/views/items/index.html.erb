@@ -1,5 +1,9 @@
 <h1>All Items</h1>
 
 <div class="row">
-  <%= render @items %>
+  <% if @items %>
+    <%= render @items %>
+  <% else %>
+    You ain't got shit.
+  <% end %>
 </div>

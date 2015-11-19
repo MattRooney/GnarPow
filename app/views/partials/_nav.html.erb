@@ -4,6 +4,11 @@
       <a href="/" class="brand-logo push-logo-right">GnarPow<i class="material-icons right">terrain</i></a>
       <ul class="right hide-on-med-and-down">
         <li>
+          <li>
+            <%= form_tag(items_path, :method => "get", id: "seach-form") do %>
+             <%= text_field_tag :search, params[:search], placeholder: "Search Items" %>
+             <% end %>
+          </li>
           <% if current_user && current_admin? %>
             <li><%= link_to "Logout", logout_path, method: :delete %></li>
             <li><%= link_to "Dashboard", admin_dashboard_index_path %></li>

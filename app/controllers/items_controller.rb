@@ -1,6 +1,11 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all
+    if params[:search]
+      @items = Item.search_all(params[:search]).flatten.uniq!
+    else
+      @items = Item.all
+    end
   end
 
   def show

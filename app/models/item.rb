@@ -7,4 +7,26 @@ class Item < ActiveRecord::Base
   belongs_to :category
   has_many :order_items
   has_many :orders, through: :order_items
+
+  def self.search_all(query)
+    all = []
+    all << search_brands(query)
+    all << search_descriptions(query)
+    all << search_names(query)
+    all.flatten.uniq!
+    all
+  end
+
+  def self.search_brands(query)
+    Item.where("brand LIKE ?", "%#{query}%")
+  end
+
+  def self.search_descriptions(query)
+    Item.where("description LIKE ?", "%#{query}%")
+  end
+
+  def self.search_names(query)
+    Item.where("name LIKE ?", "%#{query}%")
+  end
+
 end
