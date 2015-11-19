@@ -14,9 +14,8 @@ class ItemsController < ApplicationController
   end
 
   def deal
-    @featured_item = Item.find_by(name: "gnar possum")
+    @featured_item = Item.find_by(name: 'gnar possum')
   end
-
 
   private
 

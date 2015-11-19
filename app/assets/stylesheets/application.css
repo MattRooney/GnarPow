@@ -95,6 +95,10 @@ span.badge.cart-count:after {
   color: white;
 }
 
+.hidden {
+  display: none;
+}
+
 .paid {
   background-color: #29b6f6;
   color: white;
