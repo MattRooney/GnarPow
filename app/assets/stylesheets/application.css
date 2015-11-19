@@ -20,7 +20,7 @@
 
 .card-image img {
   padding: 15px;
-  width: 78% !important;
+  width: 47% !important;
   margin: auto;
 }
 
@@ -95,6 +95,10 @@ span.badge.cart-count:after {
   color: white;
 }
 
+.hidden {
+  display: none;
+}
+
 .paid {
   background-color: #29b6f6;
   color: white;
@@ -110,4 +114,36 @@ span.badge.cart-count:after {
 
 .brand-logo {
   font-family: 'Gloria Hallelujah', cursive;
+}
+
+.center-box {
+  margin-top: 8.5rem;
+  margin-bottom: 8.5rem;
+}
+
+.small-margins {
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+
+.strike {
+  text-decoration: line-through;
+  color: red !important;
+}
+
+.nudge-left {
+  margin-right: 1rem;
+}
+
+.nudge-right {
+  margin-left: 1rem;
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }

@@ -7,16 +7,25 @@
     <li>
       <%= image_tag "home1.jpeg" %>
       <div class="caption center-align">
-        <h3 class="black-text">Welcome to GnarPow!</h3>
-        <h5 class="light black-text">Home of the gnarliest gear.</h5>
-        <%= link_to "SHOP", items_path, class:"btn large" %>
+        <h1 class="black-text light">Welcome to GnarPow!</h1>
+        <br>
+        <h4 class="light black-text">Home of the gnarliest gear.</h4>
+        <br>
+        <br>
+        <br>
+        <% if current_admin? %>
+          <%= link_to "SHOP", admin_items_path, class:"btn large" %>
+        <% else %>
+          <%= link_to "SHOP", items_path, class:"btn large" %>
+        <% end %>
       </div>
     </li>
     <li>
       <%= image_tag "home2.jpeg" %>
       <div class="caption left-align">
         <h3></h3>
-        <h5 class="light black-text">You don't wanna get stuck <br> up here without boots...</h5>
+        <h3 class="light black-text">You don't wanna get stuck <br> up here without boots...</h3>
+        <br>
         <%= link_to "SHOP BOOTS", "/categories/boots", class:"btn large" %>
       </div>
     </li>
@@ -25,6 +34,7 @@
       <div class="caption right-align black-text">
         <h3>It's cold out there...</h3>
         <h5 class="light black-text">Get some sleeves!</h5>
+        <br>
         <%= link_to "SHOP APPAREL", "/categories/apparel", class:"btn large" %>
       </div>
     </li>
@@ -33,6 +43,7 @@
       <div class="caption center-align black-text">
         <h3>GnarPow!</h3>
         <h5 class="light black-text">Login and get shreddin!</h5>
+        <br>
         <%= link_to "LOGIN", login_path, class:"btn large" %>
       </div>
     </li>
@@ -51,7 +62,7 @@
                <span class="card-title black"><%= @featured_item.name.upcase %></span>
              </div>
              <div class="card-content">
-               <p>Price: $<%= @featured_item.price %></p>
+               <h5>Price: $<%= @featured_item.price %></h5>
              </div>
            </div>
          </div>
@@ -62,7 +73,13 @@
       <h3 class="grey-text center-align">Details</h3>
       <h4>Brand: <%= @featured_item.brand %></h4>
       <h6><%= @featured_item.description.capitalize %></h6>
-      <%= link_to "Add To Cart", cart_items_path(item_id: @featured_item.id), method: :post, class: "btn center-align" %>
+      <% if current_admin? %>
+      <%= link_to "Notify Users", admin_dashboard_index_path, class: "btn center-align orange" %>
+      <% else %>
+        <%= link_to "View Daily Deal", '/deal', class: "btn" %>
+        <br>
+        <%= link_to "Add To Cart", cart_items_path(item_id: @featured_item.id), method: :post %>
+      <% end %>
       </div>
     </div>
   </div>
