@@ -11,7 +11,7 @@ class Admin::ItemsController < Admin::BaseController
     @item = Item.new(item_params)
     if @item.save
       redirect_to admin_items_path
-      flash[:success] = 'Item has been added to store'
+      flash[:success] = "Item #{@item.name} has been added to store"
     else
       flash.now[:error] = 'Please fill in required fields'
       render :new
@@ -21,7 +21,7 @@ class Admin::ItemsController < Admin::BaseController
   def destroy
     item = Item.find(params[:id])
     item.destroy
-    flash[:deleted] = 'You have removed the item from the store.'
+    flash[:deleted] = 'You have removed an item from the store, brah.'
     redirect_to admin_items_path
   end
 
