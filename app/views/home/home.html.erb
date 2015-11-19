@@ -68,15 +68,17 @@
          </div>
        </div>
     </div>
-    <div class="col offset-s2 s3 center-align">
+    <div class="col offset-s2 s4 center-align">
       <div class="center-align">
       <h3 class="grey-text center-align">Details</h3>
-      <h4>Brand: <%= @featured_item.brand %></h4>
+      <h5>The <%= @featured_item.name.capitalize %> from <%= @featured_item.brand %></h5>
       <h6><%= @featured_item.description.capitalize %></h6>
+      <br>
       <% if current_admin? %>
       <%= link_to "Notify Users", admin_dashboard_index_path, class: "btn center-align orange" %>
       <% else %>
         <%= link_to "View Daily Deal", '/deal', class: "btn" %>
+        <br>
         <br>
         <%= link_to "Add To Cart", cart_items_path(item_id: @featured_item.id), method: :post %>
       <% end %>
