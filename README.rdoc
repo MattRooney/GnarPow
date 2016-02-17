@@ -1,7 +1,9 @@
 == README
 
-=GNARPOW
+===GNARPOW
 A group project focussed on building a complete e-commerce site with authentication and authorization built with Rails and Materialize.
+
+You can find the app in production here: http://gnarpow.herokuapp.com/
 
 Get up and running by calling the command 'rake db:create db:migrate db:seed'.
 
