@@ -1,5 +1,8 @@
 == README
 
+=GNARPOW
+A group project focussed on building a complete e-commerce site with authentication and authorization built with Rails and Materialize.
+
 Get up and running by calling the command 'rake db:create db:migrate db:seed'.
 
 * Ruby version
